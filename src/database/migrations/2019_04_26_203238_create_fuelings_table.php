@@ -21,7 +21,7 @@ class CreateFuelingsTable extends Migration
             $table->float('utilization_trip', 7, 2)->nullable()->comment('Trip/partial utilization since last fueling');
             $table->uuid('utilization_unit')->comment('Foreign key to distance units talbe; Common ones are km/mi/nm/h');
             $table->float('costs')->comment('Costs of the fueling');
-            $table->float('costs_per_volume')->comment('If known, costs per volume can be used to calculate the costs (i.e. if several items are on the receipt)');
+            $table->float('costs_per_capacity')->comment('If known, costs per 1 capacity can be used to calculate the costs (i.e. if several items are on the receipt)');
             $table->uuid('currency_uuid')->comment('Foreign key to currencies table; Currency of the fueling costs, i.e. EUR/USD etc');
             $table->uuid('place_uuid')->comment('Foreign key to places table; Table contains places of map and geocoding providers');
             $table->uuid('fuel_type_uuid')->comment('Foreign key to fuel types table; Fuel types are Super (95), Super Plus (98) etc');
