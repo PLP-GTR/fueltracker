@@ -3,7 +3,7 @@ Gas/Fuel consumption tracker
 
 # todo's, notes and ideas
 
-- table for tanks (id, fuel_type_uuid, capacity, capacity_unit_uuid, flag if standard)
+- table for fuel_subtypes (super / super plus / ethanol etc)
 - table for places (i.e. gas stations, at home like farmes refuel etc)
 - Support not only distances but usage hours (renaming distance to utilization)
 - Support types of cars to switch themes and display other, more important information i.e. "Daily Driver" (blueish design; km driven, consumption, costs/km & overall), "Commute only" (economy design, costs/month), "Racecar" (red/black design; costs)
@@ -20,5 +20,6 @@ Gas/Fuel consumption tracker
 - table for consumption_units (l/100km, mpg, mpge, kWh/100km etc)
 - table for payment_types (credit card, debit card, paypal, apple pay etc)
 - table for currencies (EUR, USD etc)
-- table for fuel_types
+- table for fuel_types (petrol, diesel, electric etc)
+- table for tanks (id, fuel_type_uuid, capacity, capacity_unit_uuid, flag if standard)
 

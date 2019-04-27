@@ -29,8 +29,9 @@ class CreateFuelingsTable extends Migration
             $table->uuid('currency_uuid')->comment('Foreign key to currencies table; Currency of the fueling costs, i.e. EUR/USD etc');
 
             // Types and other things
-            $table->uuid('fuel_type_uuid')->comment('Foreign key to fuel types table; Fuel types are Super (95), Super Plus (98) etc');
+            $table->uuid('fuel_subtype_uuid')->comment('Foreign key to fuel subtypes table; Fuel subtypes are Super (95), Super Plus (98) etc');
             $table->uuid('payment_type_uuid')->comment('Foreign key to payment types table; Payment types are debit card, credit card, cash etc');
+            $table->uuid('capacity_unit_uuid')->comment('Foreign key to capacity types table; Examples are liter, gallons etc');
             $table->uuid('place_uuid')->comment('Foreign key to places table; Table contains places of map and geocoding providers');
             $table->json('custom_fields')->comment('If the user wants to add more information');
 
