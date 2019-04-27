@@ -15,7 +15,7 @@ class UtilizationUnitsSeeder extends Seeder
         UtilizationUnit::create([
             'id' => Str::uuid(),
             'display_value' => 'km',
-            'description' => 'Kilometre',
+            'description' => 'Kilometer',
         ]);
         UtilizationUnit::create([
             'id' => Str::uuid(),
