@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\PaymentTypes;
+use App\PaymentType;
 use Illuminate\Http\Request;
 
-class PaymentTypesController extends Controller
+class PaymentTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PaymentTypesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\PaymentTypes  $paymentTypes
+     * @param  \App\PaymentType  $paymentType
      * @return \Illuminate\Http\Response
      */
-    public function show(PaymentTypes $paymentTypes)
+    public function show(PaymentType $paymentType)
     {
         //
     }
@@ -52,10 +52,10 @@ class PaymentTypesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\PaymentTypes  $paymentTypes
+     * @param  \App\PaymentType  $paymentType
      * @return \Illuminate\Http\Response
      */
-    public function edit(PaymentTypes $paymentTypes)
+    public function edit(PaymentType $paymentType)
     {
         //
     }
@@ -64,10 +64,10 @@ class PaymentTypesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PaymentTypes  $paymentTypes
+     * @param  \App\PaymentType  $paymentType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PaymentTypes $paymentTypes)
+    public function update(Request $request, PaymentType $paymentType)
     {
         //
     }
@@ -75,10 +75,10 @@ class PaymentTypesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PaymentTypes  $paymentTypes
+     * @param  \App\PaymentType  $paymentType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PaymentTypes $paymentTypes)
+    public function destroy(PaymentType $paymentType)
     {
         //
     }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\ConsumptionUnits;
+use App\CapacityUnit;
 use Illuminate\Http\Request;
 
-class ConsumptionUnitsController extends Controller
+class CapacityUnitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ConsumptionUnitsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ConsumptionUnits  $consumptionUnits
+     * @param  \App\CapacityUnit  $capacityUnit
      * @return \Illuminate\Http\Response
      */
-    public function show(ConsumptionUnits $consumptionUnits)
+    public function show(CapacityUnit $capacityUnit)
     {
         //
     }
@@ -52,10 +52,10 @@ class ConsumptionUnitsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ConsumptionUnits  $consumptionUnits
+     * @param  \App\CapacityUnit  $capacityUnit
      * @return \Illuminate\Http\Response
      */
-    public function edit(ConsumptionUnits $consumptionUnits)
+    public function edit(CapacityUnit $capacityUnit)
     {
         //
     }
@@ -64,10 +64,10 @@ class ConsumptionUnitsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ConsumptionUnits  $consumptionUnits
+     * @param  \App\CapacityUnit  $capacityUnit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ConsumptionUnits $consumptionUnits)
+    public function update(Request $request, CapacityUnit $capacityUnit)
     {
         //
     }
@@ -75,10 +75,10 @@ class ConsumptionUnitsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ConsumptionUnits  $consumptionUnits
+     * @param  \App\CapacityUnit  $capacityUnit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ConsumptionUnits $consumptionUnits)
+    public function destroy(CapacityUnit $capacityUnit)
     {
         //
     }
