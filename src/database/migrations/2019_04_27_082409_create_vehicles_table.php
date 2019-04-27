@@ -16,15 +16,15 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             // Main information
             $table->uuid('id')->primary()->comment('Primary key');
-            $table->uuid('user_uuid')->comment('Foreign key to users table');
+            $table->uuid('user_id')->comment('Foreign key to users table');
             $table->boolean('is_active')->default(true)->comment('Is vehicle currently in use and displayed in dropdowns etc?');
             $table->string('name')->nullable()->comment('Main displayed headline (auto-generated if empty)');
             $table->string('description')->nullable()->comment('Subline when showing vehicle');
             
             // Units
-            $table->uuid('utilization_unit_uuid')->comment('Foreign key to distance units table; Common are km/mi/nm/h');
-            $table->uuid('fuel_unit_uuid')->comment('Foreign key to fuel units table; Common are litre/gallons (uk/us)/kWh');
-            $table->uuid('consumption_unit_uuid')->comment('Foreign key to consumption units table; Common are mpg, l/100km, kWh/100km');
+            $table->uuid('utilization_unit_id')->comment('Foreign key to distance units table; Common are km/mi/nm/h');
+            $table->uuid('fuel_unit_id')->comment('Foreign key to fuel units table; Common are litre/gallons (uk/us)/kWh');
+            $table->uuid('consumption_unit_id')->comment('Foreign key to consumption units table; Common are mpg, l/100km, kWh/100km');
 
             // Additional, very unnecessary information for the application
             $table->string('make')->nullable()->comment('Make of car i.e. Audi/BMW/etc');

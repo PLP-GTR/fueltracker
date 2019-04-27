@@ -16,7 +16,7 @@ class CreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             // Main information
             $table->uuid('id')->primary()->comment('Primary key');
-            $table->uuid('user_uuid')->comment('Foreign key to users table');
+            $table->uuid('user_id')->comment('Foreign key to users table');
             $table->string('name')->comment('Name of place or gas station');
             $table->string('description')->nullable()->comment('More or less detailed than the name');
 

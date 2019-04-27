@@ -33,4 +33,9 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
     }
+
+    public function vehicles()
+    {
+        return $this->hasMany('vehicles');
+    }
 }

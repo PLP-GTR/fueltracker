@@ -16,14 +16,14 @@ class CreateFuelSubtypesTable extends Migration
         Schema::create('fuel_subtypes', function (Blueprint $table) {
             // Main information
             $table->uuid('id')->primary()->comment('Primary key');
-            $table->uuid('fuel_type_uuid')->comment('Foreign key to fuel types table');
+            $table->uuid('fuel_type_id')->comment('Foreign key to fuel types table');
             $table->string('display_value')->comment('Useful to display');
             $table->string('description')->nullable()->comment('Helpful description to the user');
 
             // Default
             $table->timestamps();
 
-            $table->unique(['fuel_type_uuid', 'display_value']);
+            $table->unique(['fuel_type_id', 'display_value']);
         });
     }
 
