@@ -23,7 +23,7 @@ class CreateFuelingsTable extends Migration
             $table->float('costs')->comment('Costs of the fueling');
             $table->float('costs_per_volume')->comment('If known, costs per volume can be used to calculate the costs (i.e. if several items are on the receipt)');
             $table->uuid('currency_uuid')->comment('Foreign key to currencies table; Currency of the fueling costs, i.e. EUR/USD etc');
-            $table->uuid('place_uuid')->comment('Foreign key to places table; Table contains places of map and geocoding providers')
+            $table->uuid('place_uuid')->comment('Foreign key to places table; Table contains places of map and geocoding providers');
             $table->uuid('fuel_type_uuid')->comment('Foreign key to fuel types table; Fuel types are Super (95), Super Plus (98) etc');
             $table->uuid('payment_type_uuid')->comment('Foreign key to payment types table; Payment types are debit card, credit card, cash etc');
             $table->json('custom_fields')->comment('If the user wants to add more information');
