@@ -17,9 +17,9 @@ class CreateFuelingsTable extends Migration
             $table->uuid('id')->primary()->comment('Primary key');
             $table->uuid('vehicle_uuid')->comment('Foreign key to vehicles table');
             $table->dateTimeTz('refueled_at')->comment('When the vehicle was refueled');
-            $table->float('mileage_overall', 7, 2)->nullable()->comment('Overall mileage of the vehicle at fueling');
-            $table->float('mileage_trip', 7, 2)->nullable()->comment('Trip mileage since last fueling');
-            $table->enum('mileage_unit', ['km', 'mi'])->comment('Mileage unit, supported are kilometres and english miles');
+            $table->float('utilization_overall', 7, 2)->nullable()->comment('Overall utilization of the vehicle at fueling');
+            $table->float('utilization_trip', 7, 2)->nullable()->comment('Trip/partial utilization since last fueling');
+            $table->uuid('utilization_unit')->comment('Foreign key to distance units talbe; Common ones are km/mi/nm/h');
             $table->float('costs')->comment('Costs of the fueling');
             $table->float('costs_per_volume')->comment('If known, costs per volume can be used to calculate the costs (i.e. if several items are on the receipt)');
             $table->uuid('currency_uuid')->comment('Foreign key to currencies table; Currency of the fueling costs, i.e. EUR/USD etc');
