@@ -18,10 +18,13 @@ class CreateConsumptionUnitsTable extends Migration
             $table->uuid('id')->primary()->comment('Primary key');
             $table->string('display_value')->unique()->comment('Useful to display');
             $table->string('description')->nullable()->comment('Helpful description to the user');
+            $table->string('abbreviation')->comment('Used to display with the value itself');
 
             // Default
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', ['--class' => 'ConsumptionUnitsSeeder', '--force' => true]);
     }
 
     /**

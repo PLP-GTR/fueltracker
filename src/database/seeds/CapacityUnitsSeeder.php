@@ -16,7 +16,7 @@ class CapacityUnitsSeeder extends Seeder
         CapacityUnit::create([
             'id' => Str::uuid(),
             'display_value' => 'l',
-            'description' => 'Litre',
+            'description' => 'Liter',
             'abbreviation' => 'l'
         ]);
         CapacityUnit::create([
