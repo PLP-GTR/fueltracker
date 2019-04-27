@@ -37,6 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    /**
+     * Retrieve all vehicles which belong to the user
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function vehicles()
     {
         return $this->hasMany(Vehicle::class);
