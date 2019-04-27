@@ -14,7 +14,12 @@ class CreateCapacityUnitsTable extends Migration
     public function up()
     {
         Schema::create('capacity_units', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            // Main information
+            $table->uuid('id')->primary()->comment('Primary key');
+            $table->string('display_value')->comment('Useful to display');
+            $table->string('description')->nullable()->comment('Helpful description to the user');
+
+            // Default
             $table->timestamps();
         });
     }
