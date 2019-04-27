@@ -25,6 +25,8 @@ class CreateFuelSubtypesTable extends Migration
 
             $table->unique(['fuel_type_id', 'display_value']);
         });
+
+        Artisan::call('db:seed', ['--class' => 'FuelSubtypesSeeder', '--force' => true]);
     }
 
     /**
