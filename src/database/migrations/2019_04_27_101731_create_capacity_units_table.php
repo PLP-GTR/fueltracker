@@ -16,7 +16,7 @@ class CreateCapacityUnitsTable extends Migration
         Schema::create('capacity_units', function (Blueprint $table) {
             // Main information
             $table->uuid('id')->primary()->comment('Primary key');
-            $table->string('display_value')->comment('Useful to display');
+            $table->string('display_value')->unique()->comment('Useful to display');
             $table->string('description')->nullable()->comment('Helpful description to the user');
 
             // Default

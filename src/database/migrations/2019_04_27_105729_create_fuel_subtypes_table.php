@@ -22,6 +22,8 @@ class CreateFuelSubtypesTable extends Migration
 
             // Default
             $table->timestamps();
+
+            $table->unique(['fuel_type_uuid', 'display_value']);
         });
     }
 

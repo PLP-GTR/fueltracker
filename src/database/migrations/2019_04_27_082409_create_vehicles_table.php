@@ -17,7 +17,7 @@ class CreateVehiclesTable extends Migration
             // Main information
             $table->uuid('id')->primary()->comment('Primary key');
             $table->uuid('user_uuid')->comment('Foreign key to users table');
-            $table->boolean('is_active')->comment('Is vehicle currently in use and displayed in dropdowns etc?');
+            $table->boolean('is_active')->default(true)->comment('Is vehicle currently in use and displayed in dropdowns etc?');
             $table->string('name')->nullable()->comment('Main displayed headline (auto-generated if empty)');
             $table->string('description')->nullable()->comment('Subline when showing vehicle');
             

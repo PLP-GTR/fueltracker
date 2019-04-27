@@ -16,8 +16,9 @@ class CreateTanksTable extends Migration
         Schema::create('tanks', function (Blueprint $table) {
             // Main information
             $table->uuid('id')->primary()->comment('Primary key');
+            $table->uuid('vehicle_uuid')->comment('Foreign key to vehicles table');
             $table->string('name')->nullable()->comment('User chosen name / description');
-            $table->boolean('is_active')->comment('Should the entry be displayed in dropdowns etc?');
+            $table->boolean('is_active')->default(true)->comment('Should the entry be displayed in dropdowns etc?');
             $table->boolean('default')->nullable()->comment('Indicates if this is the default tank to use');
 
             // Tank capacity
