@@ -22,6 +22,8 @@ class CreateUtilizationUnitsTable extends Migration
             // Default
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', ['--class' => 'UtilizationUnitsSeeder', '--force' => true]);
     }
 
     /**
