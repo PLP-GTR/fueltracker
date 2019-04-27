@@ -22,6 +22,8 @@ class CreatePaymentTypesTable extends Migration
             // Default
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', ['--class' => 'PaymentTypesSeeder', '--force' => true]);
     }
 
     /**
