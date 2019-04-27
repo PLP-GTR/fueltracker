@@ -4,9 +4,6 @@ Gas/Fuel consumption tracker
 # todo's, notes and ideas
 
 - table for tanks (id, fuel_type_uuid, capacity, capacity_unit_uuid, flag if standard)
-- table for consumption_units
-- table for payment_types
-- table for currencies
 - table for places (i.e. gas stations, at home like farmes refuel etc)
 - table for fuel_types
 - Support not only distances but usage hours (renaming distance to utilization)
@@ -21,3 +18,6 @@ Gas/Fuel consumption tracker
 - table for vehicles
 - table for utilization_units
 - table for capacity_units
+- table for consumption_units
+- table for payment_types
+- table for currencies
