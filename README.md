@@ -3,11 +3,12 @@ Gas/Fuel consumption tracker
 
 # todo's, notes and ideas
 
+- Read
+- Store
 - Routing
 - Views
-- Read
-- Storage
 - Seeders
+- api
 - Support not only distances but usage hours (renaming distance to utilization)
 - Support types of cars to switch themes and display other, more important information i.e. "Daily Driver" (blueish design; km driven, consumption, costs/km & overall), "Commute only" (economy design, costs/month), "Racecar" (red/black design; costs)
 - Add picture uploads for receipes and vehicles (stations?)
