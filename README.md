@@ -16,6 +16,7 @@ Gas/Fuel consumption tracker
 - Add export / sync with other applications which support import or sync to google drive (i.e. Fuelio)
 - Add support to choose car from dropdown via internet database (also model code / VIN)
 - Add support for multi-fuel/flex engines, see https://en.wikipedia.org/wiki/Flexible-fuel_vehicle or https://www.cargas.de/car-gas/produkte/prins-vsi-dieselblend-20/, they combine for instance diesel and LPG/CNG
+- Add support for different EV charging methods, since they differ in costs and are using the same tank (just like flex fuel cars)
 
 # done's
 
