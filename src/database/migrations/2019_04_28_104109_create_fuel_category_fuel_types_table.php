@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFuelCategoryFuelTypesTable extends Migration
+class CreateFuelCategoryFuelTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFuelCategoryFuelTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('fuel_category_fuel_types', function (Blueprint $table) {
+        Schema::create('fuel_category_fuel_type', function (Blueprint $table) {
             $table->uuid('id')->primary()->comment('Primary key');
 
             $table->uuid('fuel_category_id')->comment('Foreign key to fuel categories table');
@@ -30,6 +30,6 @@ class CreateFuelCategoryFuelTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fuel_category_fuel_types');
+        Schema::dropIfExists('fuel_category_fuel_type');
     }
 }
