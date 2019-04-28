@@ -15,6 +15,7 @@ Gas/Fuel consumption tracker
 - Add categories or tags, so fuel logs can be differentiated between private/work/travel/commute (user defined)
 - Add export / sync with other applications which support import or sync to google drive (i.e. Fuelio)
 - Add support to choose car from dropdown via internet database (also model code / VIN)
+- Add support for multi-fuel/flex engines, see https://en.wikipedia.org/wiki/Flexible-fuel_vehicle or https://www.cargas.de/car-gas/produkte/prins-vsi-dieselblend-20/, they combine for instance diesel and LPG/CNG
 
 # done's
 
