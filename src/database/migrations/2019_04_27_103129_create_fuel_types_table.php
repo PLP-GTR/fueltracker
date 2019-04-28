@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFuelSubtypesTable extends Migration
+class CreateFuelTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,14 @@ class CreateFuelSubtypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('fuel_subtypes', function (Blueprint $table) {
+        Schema::create('fuel_types', function (Blueprint $table) {
             // Main information
             $table->uuid('id')->primary()->comment('Primary key');
-            $table->uuid('fuel_type_id')->comment('Foreign key to fuel types table');
             $table->string('display_value')->comment('Useful to display');
             $table->string('description')->nullable()->comment('Helpful description to the user');
 
             // Default
             $table->timestamps();
-
-            $table->unique(['fuel_type_id', 'display_value']);
         });
     }
 
@@ -34,6 +31,6 @@ class CreateFuelSubtypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fuel_subtypes');
+        Schema::dropIfExists('fuel_types');
     }
 }

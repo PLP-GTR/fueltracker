@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\FuelSubtype;
+use App\FuelCategory;
 use Illuminate\Http\Request;
 
-class FuelSubtypeController extends Controller
+class FuelCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class FuelSubtypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\FuelSubtype  $fuelSubtype
+     * @param  \App\FuelCategory  $fuelCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(FuelSubtype $fuelSubtype)
+    public function show(FuelCategory $fuelCategory)
     {
         //
     }
@@ -52,10 +52,10 @@ class FuelSubtypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\FuelSubtype  $fuelSubtype
+     * @param  \App\FuelCategory  $fuelCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(FuelSubtype $fuelSubtype)
+    public function edit(FuelCategory $fuelCategory)
     {
         //
     }
@@ -64,10 +64,10 @@ class FuelSubtypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\FuelSubtype  $fuelSubtype
+     * @param  \App\FuelCategory  $fuelCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FuelSubtype $fuelSubtype)
+    public function update(Request $request, FuelCategory $fuelCategory)
     {
         //
     }
@@ -75,10 +75,10 @@ class FuelSubtypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\FuelSubtype  $fuelSubtype
+     * @param  \App\FuelCategory  $fuelCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FuelSubtype $fuelSubtype)
+    public function destroy(FuelCategory $fuelCategory)
     {
         //
     }

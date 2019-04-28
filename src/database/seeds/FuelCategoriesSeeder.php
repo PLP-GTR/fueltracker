@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\FuelCategory;
-use App\FuelSubtype;
+use App\FuelType;
 
 class FuelCategoriesSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class FuelCategoriesSeeder extends Seeder
     public function run()
     {
         FuelCategory::create([
-            'id' => $uuid = Str::uuid(),
+            'id' => Str::uuid(),
             'display_value' => 'Undefined',
             'description' => 'Undefined',
         ]);
@@ -25,44 +25,38 @@ class FuelCategoriesSeeder extends Seeder
             'description' => 'Petrol / Gas',
         ]);
 
-        FuelSubtype::create([
+        FuelType::create([
             'id' => Str::uuid(),
-            'fuel_type_id' => (string) $uuid,
             'display_value' => 'Super (ROZ 91)',
             'description' => 'At least unleaded',
         ]);
  
-        FuelSubtype::create([
+        FuelType::create([
             'id' => Str::uuid(),
-            'fuel_type_id' => (string) $uuid,
             'display_value' => 'Super E10 (ROZ 95)',
             'description' => 'Petrol with 10% ethanol',
         ]);
 
-        FuelSubtype::create([
+        FuelType::create([
             'id' => Str::uuid(),
-            'fuel_type_id' => (string) $uuid,
             'display_value' => 'Super (ROZ 95)',
             'description' => 'Petrol',
         ]);
 
-        FuelSubtype::create([
+        FuelType::create([
             'id' => Str::uuid(),
-            'fuel_type_id' => (string) $uuid,
             'display_value' => 'Super Plus (ROZ 98)',
             'description' => 'Better petrol',
         ]);
 
-        FuelSubtype::create([
+        FuelType::create([
             'id' => Str::uuid(),
-            'fuel_type_id' => (string) $uuid,
             'display_value' => 'Super 100 (ROZ 100)',
             'description' => 'Better petrol',
         ]);
 
-        FuelSubtype::create([
+        FuelType::create([
             'id' => Str::uuid(),
-            'fuel_type_id' => (string) $uuid,
             'display_value' => 'Super 102 (ROZ 102)',
             'description' => 'Best petrol',
         ]);
@@ -73,23 +67,20 @@ class FuelCategoriesSeeder extends Seeder
             'description' => 'Diesel',
         ]);
 
-        FuelSubtype::create([
+        FuelType::create([
             'id' => Str::uuid(),
-            'fuel_type_id' => (string) $uuid,
             'display_value' => 'Diesel',
             'description' => 'Standard diesel',
         ]);
 
-        FuelSubtype::create([
+        FuelType::create([
             'id' => Str::uuid(),
-            'fuel_type_id' => (string) $uuid,
             'display_value' => 'Premium',
             'description' => 'Better diesel offered with proprietary names',
         ]);
 
-        FuelSubtype::create([
+        FuelType::create([
             'id' => Str::uuid(),
-            'fuel_type_id' => (string) $uuid,
             'display_value' => 'Biodiesel',
             'description' => 'Biodiesel',
         ]);
@@ -100,9 +91,8 @@ class FuelCategoriesSeeder extends Seeder
             'description' => 'AdBlue',
         ]);
 
-        FuelSubtype::create([
+        FuelType::create([
             'id' => Str::uuid(),
-            'fuel_type_id' => (string) $uuid,
             'display_value' => 'DEF / AUS 32 / AdBlue',
             'description' => 'Diesel exhaust fluid',
         ]);
@@ -138,7 +128,7 @@ class FuelCategoriesSeeder extends Seeder
             'description' => 'Flexible Fuel (FFV) / Dual-Fuel',
         ]);
         FuelCategory::create([
-            'id' => $uuid = Str::uuid(),
+            'id' => Str::uuid(),
             'display_value' => 'Other',
             'description' => 'Unlisted',
         ]);
