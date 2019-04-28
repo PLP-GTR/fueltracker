@@ -21,6 +21,8 @@ class CreateFuelCategoryFuelTypeTable extends Migration
 
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', ['--class' => 'FuelCategoryFuelTypeSeeder', '--force' => true]);
     }
 
     /**
