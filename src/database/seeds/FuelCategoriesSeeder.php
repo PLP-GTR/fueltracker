@@ -21,8 +21,8 @@ class FuelCategoriesSeeder extends Seeder
             ],
             [
                 'code' => 'PTRL',
-                'display_value' => 'Petrol / Gas',
-                'description' => 'Petrol / Gas',
+                'display_value' => 'Petrol / Gasoline',
+                'description' => 'Petrol / Gasoline',
             ],
             [
                 'code' => 'DSL',

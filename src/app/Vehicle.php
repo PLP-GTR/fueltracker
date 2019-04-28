@@ -11,7 +11,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehicle extends Model
 {
-    
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
     /**
      * Retrieve the user the vehicle belongs to
      * 

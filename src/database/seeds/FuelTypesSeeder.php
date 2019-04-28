@@ -14,6 +14,11 @@ class FuelTypesSeeder extends Seeder
     {        
         $fuelTypes = coollect([
             [
+                'code' => 'UNDEFINED',
+                'display_value' => 'Undefined',
+                'description' => 'Undefined',
+            ],
+            [
                 'code' => 'P91',
                 'display_value' => 'Super (ROZ 91)',
                 'description' => 'At least unleaded',
@@ -69,6 +74,11 @@ class FuelTypesSeeder extends Seeder
                 'description' => 'Ethanol (E85)',
             ],
             [
+                'code' => 'PAR',
+                'display_value' => 'Kerosene / Paraffin',
+                'description' => 'Lamp oil / coal oil / petroleum',
+            ],
+            [
                 'code' => 'LPG',
                 'display_value' => 'LPG',
                 'description' => 'Liquefied Petroleum Gas (Propane)',
@@ -89,9 +99,19 @@ class FuelTypesSeeder extends Seeder
                 'description' => 'Hydrogen',
             ],
             [
-                'code' => 'ELEC',
-                'display_value' => 'Electric',
-                'description' => 'Electric',
+                'code' => 'L1',
+                'display_value' => 'Level 1 - 110V-120V',
+                'description' => 'Standard outlet, long charging time',
+            ],
+            [
+                'code' => 'L2',
+                'display_value' => 'Level 2 - 220V-240V',
+                'description' => 'Faster charging, SAE J1772 / Tesla HPWC connector',
+            ],
+            [
+                'code' => 'L3',
+                'display_value' => 'Level 3 - 480V-500V',
+                'description' => 'DCFC - Fast Charger, CHAdeMO / SAE Combo CCS / Tesla supercharger connector',
             ],
         ]);
 

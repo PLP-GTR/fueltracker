@@ -12,4 +12,11 @@ class FuelCategoryFuelType extends Model
      * @var string
      */
     protected $table = 'fuel_category_fuel_type';
+    
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 }
