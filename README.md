@@ -3,12 +3,20 @@ Gas/Fuel consumption tracker
 
 # todo's, notes and ideas
 
+## bugs
+
+- store currency code with fueling instead of foreign key? if currency should be deleted. but no, maybe flag currency as inactive? or just leave them as is and make sure that foreign keys prevent deletion
+
+## features
+
 - Read
 - Store
 - Routing
 - Views
 - Seeders
 - api
+- add user base currency
+- store exchange rate to user's base currency at time of fueling to fueling
 - Support not only distances but usage hours (renaming distance to utilization)
 - Support types of cars to switch themes and display other, more important information i.e. "Daily Driver" (blueish design; km driven, consumption, costs/km & overall), "Commute only" (economy design, costs/month), "Racecar" (red/black design; costs)
 - Add picture uploads for receipes and vehicles (stations?)
