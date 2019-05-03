@@ -12,4 +12,12 @@ class Fueling extends Model
      * @var bool
      */
     public $incrementing = false;
+    
+    /**
+     * The fuel categories that belong to the fuel type
+     */
+    public function fuelCategories()
+    {
+        return $this->belongsToMany(FuelCategory::class);
+    }
 }

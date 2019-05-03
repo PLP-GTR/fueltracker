@@ -19,4 +19,24 @@ class FuelCategoryFuelType extends Model
      * @var bool
      */
     public $incrementing = false;
+
+    /**
+     * Retrieve all fuel categories which belong to the fuel category fuel type
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function fuelCategories()
+    {
+        return $this->hasMany(FuelCategory::class);
+    }
+
+    /**
+     * Retrieve all fuel types which belong to the fuel category fuel type
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function fuelTypes()
+    {
+        return $this->hasMany(FuelType::class);
+    }
 }
