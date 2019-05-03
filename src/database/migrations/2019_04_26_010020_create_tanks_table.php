@@ -30,6 +30,11 @@ class CreateTanksTable extends Migration
 
             // Default
             $table->timestamps();
+            
+            // Foreign Key Constraints
+            $table->foreign('vehicle_id')->references('id')->on('vehicles')->change();
+            $table->foreign('capacity_unit_id')->references('id')->on('capacity_units')->change();
+            $table->foreign('fuel_type_id')->references('id')->on('fuel_types')->change();
         });
     }
 

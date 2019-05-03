@@ -23,7 +23,7 @@ class CreateVehiclesTable extends Migration
             
             // Units
             $table->uuid('utilization_unit_id')->comment('Foreign key to distance units table; Common are km/mi/nm/h');
-            $table->uuid('fuel_unit_id')->comment('Foreign key to fuel units table; Common are litre/gallons (uk/us)/kWh');
+            $table->uuid('capacity_unit_id')->comment('Foreign key to capacity units table; Common are litre/gallons (uk/us)/kWh');
             $table->uuid('consumption_unit_id')->comment('Foreign key to consumption units table; Common are mpg, l/100km, kWh/100km');
 
             // Additional, very unnecessary information for the application
@@ -36,6 +36,12 @@ class CreateVehiclesTable extends Migration
 
             // Default
             $table->timestamps();
+            
+            // Foreign Key Constraints
+            $table->foreign('user_id')->references('id')->on('users')->change();
+            $table->foreign('utilization_unit_id')->references('id')->on('utilization_units')->change();
+            $table->foreign('capacity_unit_id')->references('id')->on('capacity_units')->change();
+            $table->foreign('consumption_unit_id')->references('id')->on('consumption_units')->change();
         });
     }
 
