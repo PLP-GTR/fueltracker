@@ -20,6 +20,10 @@ class CreateFuelCategoryFuelTypeTable extends Migration
             $table->uuid('fuel_type_id')->comment('Foreign key to fuel types table');
 
             $table->timestamps();
+            
+            // Foreign Key Constraints
+            $table->foreign('fuel_type_id')->references('id')->on('fuel_types')->change();
+            $table->foreign('fuel_category_id')->references('id')->on('fuel_categories')->change();
         });
 
         Artisan::call('db:seed', ['--class' => 'FuelCategoryFuelTypeSeeder', '--force' => true]);
