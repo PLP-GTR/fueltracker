@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Your Vehicles</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,9 +14,13 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <p><a href="/vehicles/create">Add new vehicle</a></p>
 
-                    <p><a href="/vehicles">Vehicles</a></p>
+                    <p>Your vehicles:</p>
+
+                    @foreach ($vehicles as $vehicle)
+                        <li>{{ $vehicle->year }} {{ $vehicle->make }} <b>{{ $vehicle->model }}</b></li>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 namespace App;
 
 use App\ConsumptionUnit;
-use App\FuelUnit;
+use App\CapacityUnit;
 use App\Tank;
 use App\User;
 use App\UtilizationUnit;
@@ -35,7 +35,7 @@ class Vehicle extends Model
      */
     public function tanks()
     {
-        return $this->hasMany(Tanks::class);
+        return $this->hasMany(Tank::class);
     }
     
     /**
@@ -53,9 +53,9 @@ class Vehicle extends Model
      * 
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function fuelUnit()
+    public function capacityUnit()
     {
-        return $this->hasOne(FuelUnit::class);
+        return $this->hasOne(CapacityUnit::class);
     }
     
     /**

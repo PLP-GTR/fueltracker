@@ -4,20 +4,25 @@
 
 use App\Vehicle;
 use Faker\Generator as Faker;
+use App\UtilizationUnit;
+use App\CapacityUnit;
+use App\ConsumptionUnit;
+use App\User;
 
 $factory->define(Vehicle::class, function (Faker $faker) {
+
     return [
         // Main information
         'id' => $faker->unique()->uuid,
-        //'user_id' => $faker->uuid,
+        'user_id' => User::inRandomOrder()->first()->id,
         'is_active' => $faker->boolean,
         'name' => $faker->word,
         'description' => $faker->text,
         
         // Units
-        'utilization_unit_id' => $faker->uuid,
-        'fuel_unit_id' => $faker->uuid,
-        'consumption_unit_id' => $faker->uuid,
+        'utilization_unit_id' => UtilizationUnit::inRandomOrder()->first()->id,
+        'capacity_unit_id' => CapacityUnit::inRandomOrder()->first()->id,
+        'consumption_unit_id' => ConsumptionUnit::inRandomOrder()->first()->id,
 
         // Additional, very unnecessary information for the application
         'make' => $faker->word,
