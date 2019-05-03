@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Vehicle;
 use Illuminate\Http\Request;
+use App\UtilizationUnit;
+use App\CapacityUnit;
+use App\ConsumptionUnit;
 
 class VehicleController extends Controller
 {
@@ -14,7 +17,6 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        //$vehicles = Vehicle::all();
         $vehicles = auth()->user()->vehicles;
         return view('vehicles.index', compact('vehicles'));
     }
@@ -26,7 +28,11 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        //
+        $utilizationUnits = UtilizationUnit::all();
+        $capacityUnits = CapacityUnit::all();
+        $consumptionUnits = ConsumptionUnit::all();
+        
+        return view('vehicles.create', compact('utilizationUnits', 'capacityUnits', 'consumptionUnits'));
     }
 
     /**
@@ -37,7 +43,7 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request->all();
     }
 
     /**
