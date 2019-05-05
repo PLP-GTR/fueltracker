@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/vehicles', 'VehicleController@index');
+Route::get('/vehicles', 'VehicleController@index')->name('vehicles');
 Route::post('/vehicles', 'VehicleController@store');
 Route::get('/vehicles/create', 'VehicleController@create');

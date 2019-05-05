@@ -8,9 +8,14 @@ use App\Tank;
 use App\User;
 use App\UtilizationUnit;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Concerns\HasUuid;
 
 class Vehicle extends Model
 {
+    use HasUuid;
+
+    protected $primaryKey = 'id';
+
     /**
      * Indicates if the IDs are auto-incrementing.
      *

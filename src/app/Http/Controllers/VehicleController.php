@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\UtilizationUnit;
 use App\CapacityUnit;
 use App\ConsumptionUnit;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class VehicleController extends Controller
 {
@@ -43,7 +48,49 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request->all();
+        $rules = array(
+            'is_active' => 'required',
+            'name' => 'required',
+            'description' => '',
+            'utilization_unit_id' => 'required',
+            'capacity_unit_id' => 'required',
+            'consumption_unit_id' => 'required',
+            'year' => '',
+            'make' => '',
+            'model' => '',
+            'license_plate' => '',
+            'vin' => '',
+            'insurance' => '',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        // Validate
+        if ($validator->fails()) {
+            return Redirect::to('vehicles/create')
+                ->withErrors($validator)
+                ->withInput(Input::all());
+        } else {
+            $vehicle = new Vehicle;
+            $vehicle->user_id = Auth::id();
+            $vehicle->is_active = Input::get('is_active');
+            $vehicle->name = Input::get('name');
+            $vehicle->description = Input::get('description');
+            $vehicle->utilization_unit_id = Input::get('utilization_unit_id');
+            $vehicle->capacity_unit_id = Input::get('capacity_unit_id');
+            $vehicle->consumption_unit_id = Input::get('consumption_unit_id');
+            $vehicle->year = Input::get('year');
+            $vehicle->make = Input::get('make');
+            $vehicle->model = Input::get('model');
+            $vehicle->license_plate = Input::get('license_plate');
+            $vehicle->vin = Input::get('vin');
+            $vehicle->insurance = Input::get('insurance');
+            $vehicle->save();
+
+            // redirect
+            Session::flash('message', 'Successfully created vehicle!');
+            return Redirect::to('vehicles');
+        }
     }
 
     /**
