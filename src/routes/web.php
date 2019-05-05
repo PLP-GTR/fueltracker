@@ -20,5 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/vehicles', 'VehicleController@index')->name('vehicles');
-Route::post('/vehicles', 'VehicleController@store');
 Route::get('/vehicles/create', 'VehicleController@create');
+Route::post('/vehicles', 'VehicleController@store');
+Route::get('/vehicles/{id}', 'VehicleController@show');
+Route::get('/vehicles/{id}/edit', 'VehicleController@edit');
+Route::put('/vehicles/{id}', 'VehicleController@update');
+Route::patch('/vehicles/{id}', 'VehicleController@update');
+Route::delete('/vehicles/{id}', 'VehicleController@destroy');
