@@ -59,7 +59,7 @@
                                         {{ __('Home') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('vehicles') }}">
+                                    <a class="dropdown-item" href="{{ route('vehicles.index') }}">
                                         {{ __('Vehicles') }}
                                     </a>
 
