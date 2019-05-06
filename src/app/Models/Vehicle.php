@@ -26,11 +26,11 @@ class Vehicle extends Model
     /**
      * Retrieve the user the vehicle belongs to
      * 
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -46,30 +46,30 @@ class Vehicle extends Model
     /**
      * Retrieve the utilization unit the vehicle belongs to
      * 
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function utilizationUnit()
     {
-        return $this->hasOne(UtilizationUnit::class);
+        return $this->belongsTo(UtilizationUnit::class);
     }
     
     /**
      * Retrieve the fuel unit the vehicle belongs to
      * 
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function capacityUnit()
     {
-        return $this->hasOne(CapacityUnit::class);
+        return $this->belongsTo(CapacityUnit::class);
     }
     
     /**
      * Retrieve the consumption unit the vehicle belongs to
      * 
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function consumptionUnit()
     {
-        return $this->hasOne(ConsumptionUnit::class);
+        return $this->belongsTo(ConsumptionUnit::class);
     }
 }

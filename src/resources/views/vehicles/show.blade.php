@@ -32,6 +32,10 @@
                                 <td>{{ $vehicle->id }}</td>
                             </tr>
                             <tr>
+                                <th scope="row">user</th>
+                                <td>{{ $vehicle->user->name }}</td>
+                            </tr>
+                            <tr>
                                 <th scope="row">is_active</th>
                                 <td>{{ $vehicle->is_active }}</td>
                             </tr>
@@ -44,20 +48,20 @@
                                 <td>{{ $vehicle->description }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">utilization_unit_id</th>
-                                <td>{{ $vehicle->utilization_unit_id }}</td>
+                                <th scope="row">utilizationUnit</th>
+                                <td>{{ $vehicle->utilizationUnit->display_value }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">capacity_unit_id</th>
-                                <td>{{ $vehicle->capacity_unit_id }}</td>
+                                <th scope="row">capacityUnit</th>
+                                <td>{{ $vehicle->capacityUnit->display_value }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">capacity_unit_id</th>
-                                <td>{{ $vehicle->capacity_unit_id }}</td>
+                                <th scope="row">capacityUnit</th>
+                                <td>{{ $vehicle->capacityUnit->display_value }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">consumption_unit_id</th>
-                                <td>{{ $vehicle->consumption_unit_id }}</td>
+                                <th scope="row">consumptionUnit</th>
+                                <td>{{ $vehicle->consumptionUnit->display_value }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">make</th>
