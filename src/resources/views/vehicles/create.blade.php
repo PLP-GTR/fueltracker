@@ -21,68 +21,58 @@
                     <form method="POST" action="/vehicles">
                         {{ csrf_field() }}
 
-                        <div>
-                            Is active? <input type="checkbox" name="is_active" />
-                        </div>
-                        <div>
-                            Name<br />
-                            <input type="text" name="name" placeholder="Green one" />
-                        </div>
-                        <div>
-                            Description<br />
-                            <textarea name="description" placeholder="About the car"></textarea>
-                        </div>
-                        <div>
-                            Utilization Unit<br />
-                            <select name="utilization_unit_id">
-                                @foreach ($utilizationUnits as $utilizationUnit)
-                                    <option value="{{ $utilizationUnit->id }}">{{ $utilizationUnit->description }} ({{ $utilizationUnit->display_value }})</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div>
-                            Capacity Unit<br />
-                            <select name="capacity_unit_id">
-                                @foreach ($capacityUnits as $capacityUnit)
-                                    <option value="{{ $capacityUnit->id }}">{{ $capacityUnit->description }} ({{ $capacityUnit->display_value }})</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div>
-                            Consumption Unit<br />
-                            <select name="consumption_unit_id">
-                                @foreach ($consumptionUnits as $consumptionUnit)
-                                    <option value="{{ $consumptionUnit->id }}">{{ $consumptionUnit->description }} ({{ $consumptionUnit->display_value }})</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div>
-                            Year<br />
-                            <input type="text" name="year" placeholder="2001" />
-                        </div>
-                        <div>
-                            Make<br />
-                            <input type="text" name="make" placeholder="Audi" />
-                        </div>
-                        <div>
-                            Model<br />
-                            <input type="text" name="model" placeholder="A4 B5 1.8T quattro Avant" />
-                        </div>
-                        <div>
-                            License Plate<br />
-                            <input type="text" name="license_plate" placeholder="MYA4ROX" />
-                        </div>
-                        <div>
-                            VIN<br />
-                            <input type="text" name="vin" placeholder="WAUZZZ8K6AA103083" />
-                        </div>
-                        <div>
-                            Insurance<br />
-                            <input type="text" name="insurance" placeholder="HUK24 fully comprehensive insurance" />
-                        </div>
-                        <div>
-                            <button type="submit">Create vehicle</button>
-                        </div>
+                        <div class="row">
+                        <div class="col-sm-4">{{ Form::label('is_active', 'Is active?') }}</div>
+                        <div class="col-sm-8">{{ Form::checkbox('is_active', null, true) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::label('name', 'Name') }}</div>
+                        <div class="col-sm-8">{{ Form::text('name', null, ['placeholder' => 'Green one']) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::label('description', 'Description') }}</div>
+                        <div class="col-sm-8">{{ Form::text('description', null, ['placeholder' => 'About the car']) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::label('utilization_unit_id', 'Utilization Unit') }}</div>
+                        <div class="col-sm-8">{{ Form::select('utilization_unit_id', App\UtilizationUnit::all()->pluck('human_readable','id'), null, ['placeholder' => 'Choose...']) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::label('capacity_unit_id', 'Capacity Unit') }}</div>
+                        <div class="col-sm-8">{{ Form::select('capacity_unit_id', App\CapacityUnit::all()->pluck('human_readable','id'), null, ['placeholder' => 'Choose...']) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::label('consumption_unit_id', 'Consumption Unit') }}</div>
+                        <div class="col-sm-8">{{ Form::select('consumption_unit_id', App\ConsumptionUnit::all()->pluck('human_readable','id'), null, ['placeholder' => 'Choose...']) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::label('year', 'Year') }}</div>
+                        <div class="col-sm-8">{{ Form::text('year', null, ['placeholder' => '2001']) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::label('make', 'Make') }}</div>
+                        <div class="col-sm-8">{{ Form::text('make', null, ['placeholder' => 'Audi']) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::label('model', 'Model') }}</div>
+                        <div class="col-sm-8">{{ Form::text('model', null, ['placeholder' => 'A4 B5 1.8T quattro Avant']) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::label('license_plate', 'License Plate') }}</div>
+                        <div class="col-sm-8">{{ Form::text('license_plate', null, ['placeholder' => 'MYA4ROXs']) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::label('vin', 'VIN') }}</div>
+                        <div class="col-sm-8">{{ Form::text('vin', null, ['placeholder' => 'WAUZZZ8DZ123456']) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::label('insurance', 'Insurance') }}</div>
+                        <div class="col-sm-8">{{ Form::text('insurance', null, ['placeholder' => 'HUK24 fully comprehensive']) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{ Form::submit('Create vehicle') }}</div>
+                        <div class="col-sm-8"></div>
+                    </div>
                     </form>
                 </div>
             </div>
