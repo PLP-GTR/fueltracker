@@ -69,28 +69,28 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make(Input::all(), $this->rules);
+        $validator = Validator::make($request->all(), $this->rules);
 
         // Validate
         if ($validator->fails()) {
             return Redirect::to('vehicles/create')
                 ->withErrors($validator)
-                ->withInput(Input::all());
+                ->withInput($request->all());
         } else {
             $vehicle = new Vehicle;
             $vehicle->user_id = Auth::id();
-            $vehicle->is_active = Input::get('is_active', 0);
-            $vehicle->name = Input::get('name');
-            $vehicle->description = Input::get('description');
-            $vehicle->utilization_unit_id = Input::get('utilization_unit_id');
-            $vehicle->capacity_unit_id = Input::get('capacity_unit_id');
-            $vehicle->consumption_unit_id = Input::get('consumption_unit_id');
-            $vehicle->year = Input::get('year');
-            $vehicle->make = Input::get('make');
-            $vehicle->model = Input::get('model');
-            $vehicle->license_plate = Input::get('license_plate');
-            $vehicle->vin = Input::get('vin');
-            $vehicle->insurance = Input::get('insurance');
+            $vehicle->is_active = $request->get('is_active', 0);
+            $vehicle->name = $request->get('name');
+            $vehicle->description = $request->get('description');
+            $vehicle->utilization_unit_id = $request->get('utilization_unit_id');
+            $vehicle->capacity_unit_id = $request->get('capacity_unit_id');
+            $vehicle->consumption_unit_id = $request->get('consumption_unit_id');
+            $vehicle->year = $request->get('year');
+            $vehicle->make = $request->get('make');
+            $vehicle->model = $request->get('model');
+            $vehicle->license_plate = $request->get('license_plate');
+            $vehicle->vin = $request->get('vin');
+            $vehicle->insurance = $request->get('insurance');
             $vehicle->save();
 
             // redirect
@@ -138,7 +138,7 @@ class VehicleController extends Controller
 
         // Validate
         if ($validator->fails()) {
-            return redirect('vehicles/'.$vehicle->id.'/edit')->withErrors($validator)->withInput(Input::all());
+            return redirect('vehicles/'.$vehicle->id.'/edit')->withErrors($validator)->withInput($request->all());
         } else {
             $vehicle->is_active = $request->get('is_active', 0);
             $vehicle->name = $request->get('name');
