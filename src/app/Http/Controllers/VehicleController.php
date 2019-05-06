@@ -168,6 +168,10 @@ class VehicleController extends Controller
      */
     public function destroy(Vehicle $vehicle)
     {
-        //
+        $vehicle->delete();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted the vehicle');
+        return Redirect::to('vehicles');
     }
 }

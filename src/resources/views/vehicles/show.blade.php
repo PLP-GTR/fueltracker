@@ -94,6 +94,10 @@
                             </tr>
                         </tbody>
                     </table>
+                    
+                    {{ Form::model($vehicle, ['route' => ['vehicles.destroy', $vehicle->id], 'method' => 'delete']) }}
+                        {{ Form::submit('Delete this Vehicle', array('class' => 'btn btn-warning')) }}
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>
