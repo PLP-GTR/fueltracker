@@ -33,11 +33,11 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        $utilizationUnits = UtilizationUnit::all();
-        $capacityUnits = CapacityUnit::all();
+        $capacityUnits    = CapacityUnit::all();
         $consumptionUnits = ConsumptionUnit::all();
+        $utilizationUnits = UtilizationUnit::all();
         
-        return view('vehicles.create', compact('utilizationUnits', 'capacityUnits', 'consumptionUnits'));
+        return view('vehicles.create', compact('capacityUnits', 'consumptionUnits', 'utilizationUnits'));
     }
 
     /**
@@ -112,7 +112,11 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        //
+        $capacityUnits    = CapacityUnit::all();
+        $consumptionUnits = ConsumptionUnit::all();
+        $utilizationUnits = UtilizationUnit::all();
+
+        return view('vehicles.edit', compact('vehicle', 'capacityUnits', 'consumptionUnits', 'utilizationUnits'));
     }
 
     /**

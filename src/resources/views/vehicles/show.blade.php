@@ -16,6 +16,7 @@
                     @endif
 
                     <p><a href="{{ route('vehicles.index') }}">Back to your vehicles</a></p>
+                    <p><a href="{{ route('vehicles.edit', $vehicle->id) }}">Edit this vehicle</a></p>
 
                     <p>Your vehicle:</p>
 
@@ -33,7 +34,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">user</th>
-                                <td>{{ $vehicle->user->name }}</td>
+                                <td>{{ $vehicle->user->name }} <i>({{ $vehicle->user->email }})</i></td>
                             </tr>
                             <tr>
                                 <th scope="row">is_active</th>
@@ -49,19 +50,15 @@
                             </tr>
                             <tr>
                                 <th scope="row">utilizationUnit</th>
-                                <td>{{ $vehicle->utilizationUnit->display_value }}</td>
+                                <td>{{ $vehicle->utilizationUnit->display_value }} <i>({{ $vehicle->utilizationUnit->description }})</i></td>
                             </tr>
                             <tr>
                                 <th scope="row">capacityUnit</th>
-                                <td>{{ $vehicle->capacityUnit->display_value }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">capacityUnit</th>
-                                <td>{{ $vehicle->capacityUnit->display_value }}</td>
+                                <td>{{ $vehicle->capacityUnit->display_value }} <i>({{ $vehicle->capacityUnit->description }})</i></td>
                             </tr>
                             <tr>
                                 <th scope="row">consumptionUnit</th>
-                                <td>{{ $vehicle->consumptionUnit->display_value }}</td>
+                                <td>{{ $vehicle->consumptionUnit->display_value }} <i>({{ $vehicle->consumptionUnit->description }})</i></td>
                             </tr>
                             <tr>
                                 <th scope="row">make</th>

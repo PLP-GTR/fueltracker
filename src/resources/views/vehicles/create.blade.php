@@ -14,6 +14,8 @@
                         </div>
                     @endif
 
+                    <p><a href="{{ route('vehicles.index') }}">Back to your vehicles</a></p>
+
                     <p>Add new vehicle:</p>
 
                     <form method="POST" action="/vehicles">
