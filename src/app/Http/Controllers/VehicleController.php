@@ -15,6 +15,27 @@ use Illuminate\Support\Facades\Auth;
 
 class VehicleController extends Controller
 {
+
+    /**
+     * Validation rules for create and update
+     * 
+     * @var String
+     */
+    private $rules = array(
+        'is_active'           => 'sometimes',
+        'name'                => 'required',
+        'description'         => 'sometimes',
+        'utilization_unit_id' => 'required',
+        'capacity_unit_id'    => 'required',
+        'consumption_unit_id' => 'required',
+        'year'                => 'sometimes',
+        'make'                => 'sometimes',
+        'model'               => 'sometimes',
+        'license_plate'       => 'sometimes',
+        'vin'                 => 'sometimes',
+        'insurance'           => 'sometimes',
+    );
+
     /**
      * Display a listing of the resource.
      *
@@ -48,22 +69,7 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = array(
-            'is_active' => 'required',
-            'name' => 'required',
-            'description' => '',
-            'utilization_unit_id' => 'required',
-            'capacity_unit_id' => 'required',
-            'consumption_unit_id' => 'required',
-            'year' => '',
-            'make' => '',
-            'model' => '',
-            'license_plate' => '',
-            'vin' => '',
-            'insurance' => '',
-        );
-
-        $validator = Validator::make(Input::all(), $rules);
+        $validator = Validator::make(Input::all(), $this->rules);
 
         // Validate
         if ($validator->fails()) {
@@ -73,7 +79,7 @@ class VehicleController extends Controller
         } else {
             $vehicle = new Vehicle;
             $vehicle->user_id = Auth::id();
-            $vehicle->is_active = Input::get('is_active');
+            $vehicle->is_active = Input::get('is_active', 0);
             $vehicle->name = Input::get('name');
             $vehicle->description = Input::get('description');
             $vehicle->utilization_unit_id = Input::get('utilization_unit_id');
@@ -128,7 +134,30 @@ class VehicleController extends Controller
      */
     public function update(Request $request, Vehicle $vehicle)
     {
-        //
+        $validator = Validator::make($request->all(), $this->rules);
+
+        // Validate
+        if ($validator->fails()) {
+            return redirect('vehicles/'.$vehicle->id.'/edit')->withErrors($validator)->withInput(Input::all());
+        } else {
+            $vehicle->is_active = $request->get('is_active', 0);
+            $vehicle->name = $request->get('name');
+            $vehicle->description = $request->get('description');
+            $vehicle->utilization_unit_id = $request->get('utilization_unit_id');
+            $vehicle->capacity_unit_id = $request->get('capacity_unit_id');
+            $vehicle->consumption_unit_id = $request->get('consumption_unit_id');
+            $vehicle->year = $request->get('year');
+            $vehicle->make = $request->get('make');
+            $vehicle->model = $request->get('model');
+            $vehicle->license_plate = $request->get('license_plate');
+            $vehicle->vin = $request->get('vin');
+            $vehicle->insurance = $request->get('insurance');
+            $vehicle->save();
+
+            // redirect
+            Session::flash('message', 'Successfully updated vehicle!');
+            return Redirect::to('vehicles/'.$vehicle->id);
+        }
     }
 
     /**

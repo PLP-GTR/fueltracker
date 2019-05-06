@@ -41,8 +41,8 @@
                         <div class="col-sm-8">{{ Form::select('capacity_unit_id', App\CapacityUnit::all()->pluck('human_readable','id')) }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-4">{{ Form::label('capacity_unit_id', 'Consumption Unit') }}</div>
-                        <div class="col-sm-8">{{ Form::select('capacity_unit_id', App\ConsumptionUnit::all()->pluck('human_readable','id')) }}</div>
+                        <div class="col-sm-4">{{ Form::label('consumption_unit_id', 'Consumption Unit') }}</div>
+                        <div class="col-sm-8">{{ Form::select('consumption_unit_id', App\ConsumptionUnit::all()->pluck('human_readable','id')) }}</div>
                     </div>
                     <div class="row">
                         <div class="col-sm-4">{{ Form::label('year', 'Year') }}</div>

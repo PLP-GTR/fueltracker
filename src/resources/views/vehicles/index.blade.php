@@ -19,11 +19,15 @@
                     <p>Your vehicles:</p>
 
                     @foreach ($vehicles as $vehicle)
-                        <li>
-                            <a href="{{ route('vehicles.show', $vehicle->id) }}">
+                    
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <a href="{{ route('vehicles.show', $vehicle->id) }}">{{ $vehicle->name }}</a>
+                            </div>
+                            <div class="col-sm-8">
                                 {{ $vehicle->year }} {{ $vehicle->make }} <b>{{ $vehicle->model }}</b>
-                            </a>
-                        </li>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
