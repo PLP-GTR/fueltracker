@@ -36,7 +36,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-4">{{ Form::label('capacity', 'Capacity') }}</div>
-                            <div class="col-sm-8">{{ Form::number('capacity', null, ['placeholder' => '42']) }}</div>
+                            <div class="col-sm-8">{{ Form::number('capacity', null, ['placeholder' => '42', 'step' => '0.1']) }}</div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4">{{ Form::label('capacity_unit_id', 'Capacity Unit') }}</div>

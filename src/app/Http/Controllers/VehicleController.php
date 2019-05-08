@@ -73,7 +73,7 @@ class VehicleController extends Controller
 
         // Validate
         if ($validator->fails()) {
-            return Redirect::to('vehicles/create')
+            return Redirect::route('vehicles.create')
                 ->withErrors($validator)
                 ->withInput($request->all());
         } else {
@@ -95,7 +95,7 @@ class VehicleController extends Controller
 
             // redirect
             Session::flash('message', 'Successfully created vehicle!');
-            return Redirect::to('vehicles');
+            return Redirect::route('vehicles.index');
         }
     }
 
@@ -138,7 +138,7 @@ class VehicleController extends Controller
 
         // Validate
         if ($validator->fails()) {
-            return redirect('vehicles/'.$vehicle->id.'/edit')->withErrors($validator)->withInput($request->all());
+            return Redirect::route('vehicles.edit', $vehicle->id)->withErrors($validator)->withInput($request->all());
         } else {
             $vehicle->is_active = $request->get('is_active', 0);
             $vehicle->name = $request->get('name');
@@ -156,7 +156,7 @@ class VehicleController extends Controller
 
             // redirect
             Session::flash('message', 'Successfully updated vehicle!');
-            return Redirect::to('vehicles/'.$vehicle->id);
+            return Redirect::route('vehicles.show', $vehicle->id);
         }
     }
 

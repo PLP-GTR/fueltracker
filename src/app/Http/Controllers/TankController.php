@@ -72,8 +72,8 @@ class TankController extends Controller
             $tank = new Tank;
             $tank->vehicle_id = $vehicle->id;
             $tank->name = $request->get('name');
-            $tank->is_active = $request->get('is_active', 1);
-            $tank->default = $request->get('default', 1);
+            $tank->is_active = $request->get('is_active', 0);
+            $tank->default = $request->get('default', 0);
             $tank->capacity = $request->get('capacity');
             $tank->capacity_unit_id = $request->get('capacity_unit_id');
             $tank->fuel_type_id = $request->get('fuel_type_id');
@@ -119,7 +119,26 @@ class TankController extends Controller
      */
     public function update(Request $request, Vehicle $vehicle, Tank $tank)
     {
-        //
+        $validator = Validator::make($request->all(), $this->rules);
+
+        // Validate
+        if ($validator->fails()) {
+            return Redirect::route('vehicles.tanks.edit', [$vehicle->id, $tank->id])
+                       ->withErrors($validator)
+                       ->withInput($request->all());
+        } else {
+            $tank->name = $request->get('name');
+            $tank->is_active = $request->get('is_active', 0);
+            $tank->default = $request->get('default', 0);
+            $tank->capacity = $request->get('capacity');
+            $tank->capacity_unit_id = $request->get('capacity_unit_id');
+            $tank->fuel_type_id = $request->get('fuel_type_id');
+            $tank->save();
+
+            // redirect
+            Session::flash('message', 'Successfully updated tank!');
+            return Redirect::route('vehicles.show', $vehicle->id);
+        }
     }
 
     /**
