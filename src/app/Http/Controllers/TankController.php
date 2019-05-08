@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Tank;
 use Illuminate\Http\Request;
+use App\FuelType;
+use App\CapacityUnit;
+use App\Vehicle;
 
 class TankController extends Controller
 {
@@ -22,9 +25,13 @@ class TankController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($vehicleId)
     {
-        //
+        $vehicle       = Vehicle::find($vehicleId);
+        $capacityUnits = CapacityUnit::all();
+        $fuelTypes     = FuelType::all();
+
+        return view('tanks.create', compact('vehicle', 'capacityUnits', 'fuelTypes'));
     }
 
     /**

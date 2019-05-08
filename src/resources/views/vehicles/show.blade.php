@@ -17,6 +17,7 @@
 
                     <p><a href="{{ route('vehicles.index') }}">Back to your vehicles</a></p>
                     <p><a href="{{ route('vehicles.edit', $vehicle->id) }}">Edit this vehicle</a></p>
+                    <p><a href="{{ route('vehicles.tanks.create', $vehicle->id) }}">Add a tank to this vehicle</a></p>
 
                     <p>Your vehicle:</p>
 
