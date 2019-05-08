@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Concerns\HasUuid;
 
 class Tank extends Model
 {
+    use HasUuid;
+
     /**
      * Indicates if the IDs are auto-incrementing.
      *

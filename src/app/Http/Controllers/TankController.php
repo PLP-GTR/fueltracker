@@ -7,9 +7,29 @@ use Illuminate\Http\Request;
 use App\FuelType;
 use App\CapacityUnit;
 use App\Vehicle;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class TankController extends Controller
 {
+
+    /**
+     * Validation rules for create and update
+     * 
+     * @var String
+     */
+    private $rules = array(
+        'name'                => 'required',
+        'is_active'           => 'sometimes',
+        'default'             => 'sometimes',
+        'capacity'            => 'required|numeric',
+        'capacity_unit_id' => 'required|uuid',
+        'fuel_type_id'        => 'required|uuid',
+    );
+
     /**
      * Display a listing of the resource.
      *
@@ -40,9 +60,30 @@ class TankController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $vehicleId)
     {
-        //
+        $validator = Validator::make($request->all(), $this->rules);
+
+        // Validate
+        if ($validator->fails()) {
+            return Redirect::route('vehicles.tanks.create', $vehicleId)
+                ->withErrors($validator)
+                ->withInput($request->all());
+        } else {
+            $tank = new Tank;
+            $tank->vehicle_id = $vehicleId;
+            $tank->name = $request->get('name');
+            $tank->is_active = $request->get('is_active', 1);
+            $tank->default = $request->get('default', 1);
+            $tank->capacity = $request->get('capacity');
+            $tank->capacity_unit_id = $request->get('capacity_unit_id');
+            $tank->fuel_type_id = $request->get('fuel_type_id');
+            $tank->save();
+
+            // redirect
+            Session::flash('message', 'Successfully created tank!');
+            return Redirect::route('vehicles.show', $vehicleId);
+        }
     }
 
     /**
