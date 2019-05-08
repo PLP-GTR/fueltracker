@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">New vehicle</div>
+                <div class="card-header">Vehicle: {{ $vehicle->name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -15,6 +15,8 @@
                     @endif
 
                     <p><a href="{{ route('vehicles.index') }}">Back to your vehicles</a></p>
+
+                    <p><a href="{{ route('vehicles.show', $vehicle->id) }}">Cancel edit</a></p>
 
                     <p>Update {{ $vehicle->name }}:</p>
 

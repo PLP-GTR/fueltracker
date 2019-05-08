@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">New vehicle</div>
+                <div class="card-header">Tank: {{ $tank->name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,13 +14,11 @@
                         </div>
                     @endif
 
-                    <p><a href="{{ route('vehicles.index') }}">Back to your vehicles</a></p>
-
                     <p><a href="{{ route('vehicles.show', $vehicle->id) }}">Back to {{ $vehicle->name }}</a></p>
 
-                    <p>Add new tank to {{ $vehicle->make }} {{ $vehicle->model }}:</p>
+                    <p>Update {{ $tank->name }} of {{ $vehicle->name }}:</p>
 
-                    {{ Form::open(['route' => ['vehicles.tanks.store', $vehicle->id]]) }}
+                    {{ Form::model($tank, ['route' => ['vehicles.tanks.update', $vehicle->id, $tank->id], 'method' => 'put']) }}
 
                         <div class="row">
                             <div class="col-sm-4">{{ Form::label('is_active', 'Is active?') }}</div>
@@ -47,12 +45,11 @@
                             <div class="col-sm-8">{{ Form::select('fuel_type_id', App\FuelType::all()->pluck('human_readable','id'), null, ['placeholder' => 'Choose...']) }}</div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4">{{ Form::submit('Add tank') }}</div>
+                            <div class="col-sm-4">{{ Form::submit('Update tank') }}</div>
                             <div class="col-sm-8"></div>
                         </div>
 
                     {{ Form::close() }}
-
                 </div>
             </div>
         </div>

@@ -104,7 +104,10 @@ class TankController extends Controller
      */
     public function edit(Vehicle $vehicle, Tank $tank)
     {
-        
+        $capacityUnits = CapacityUnit::all();
+        $fuelTypes     = FuelType::all();
+
+        return view('tanks.edit', compact('vehicle', 'tank', 'capacityUnits', 'fuelTypes'));
     }
 
     /**
@@ -114,7 +117,7 @@ class TankController extends Controller
      * @param  \App\Tank  $tank
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tank $tank)
+    public function update(Request $request, Vehicle $vehicle, Tank $tank)
     {
         //
     }
@@ -125,8 +128,12 @@ class TankController extends Controller
      * @param  \App\Tank  $tank
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tank $tank)
+    public function destroy(Vehicle $vehicle, Tank $tank)
     {
-        //
+        $tank->delete();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted the tank');
+        return Redirect::route('vehicles.show', $vehicle->id);
     }
 }

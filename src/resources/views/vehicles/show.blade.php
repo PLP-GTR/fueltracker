@@ -16,8 +16,6 @@
                     @endif
 
                     <p><a href="{{ route('vehicles.index') }}">Back to your vehicles</a></p>
-                    
-                    <p><a href="{{ route('vehicles.tanks.create', $vehicle->id) }}">Add a tank to this vehicle</a></p>
 
                     <p class="h5">Your vehicle:</p>
 
@@ -105,6 +103,8 @@
                     </div>
                     
                     <p class="h5 mt-5">Tanks of this vehicle:</p>
+                    
+                    <p><a href="{{ route('vehicles.tanks.create', $vehicle->id) }}">Add a tank to this vehicle</a></p>
 
                     @foreach ($vehicle->tanks as $tank)
 
@@ -155,7 +155,7 @@
                         </tbody>
                     </table>
 
-                    <div class="clearfix">                        
+                    <div class="clearfix mb-3">                        
                         <a href="{{ route('vehicles.tanks.edit', [$vehicle->id, $tank->id]) }}" class="btn btn-primary float-left" role="button">Edit tank {{ $tank->name }}</a>
 
                         {{ Form::model($tank, ['route' => ['vehicles.tanks.destroy', $vehicle->id, $tank->id], 'method' => 'delete']) }}
