@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Your Vehicles</div>
+                <div class="card-header">{{ $vehicle->name }}, <strong>{{ $vehicle->make }}</strong> {{ $vehicle->model }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,12 +16,12 @@
                     @endif
 
                     <p><a href="{{ route('vehicles.index') }}">Back to your vehicles</a></p>
-                    <p><a href="{{ route('vehicles.edit', $vehicle->id) }}">Edit this vehicle</a></p>
+                    
                     <p><a href="{{ route('vehicles.tanks.create', $vehicle->id) }}">Add a tank to this vehicle</a></p>
 
-                    <p>Your vehicle:</p>
+                    <p class="h5">Your vehicle:</p>
 
-                    <table class="table">
+                    <table class="table table-sm">
                         <thead>
                             <tr>
                             <th scope="col">Attribute</th>
@@ -95,10 +95,76 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <div class="clearfix">                        
+                        <a href="{{ route('vehicles.edit', $vehicle->id) }}" class="btn btn-primary float-left" role="button">Edit vehicle {{ $vehicle->name }}</a>
+
+                        {{ Form::model($vehicle, ['route' => ['vehicles.destroy', $vehicle->id], 'method' => 'delete']) }}
+                            {{ Form::submit('Delete this Vehicle', array('class' => 'btn btn-outline-danger float-right')) }}
+                        {{ Form::close() }}
+                    </div>
                     
-                    {{ Form::model($vehicle, ['route' => ['vehicles.destroy', $vehicle->id], 'method' => 'delete']) }}
-                        {{ Form::submit('Delete this Vehicle', array('class' => 'btn btn-warning')) }}
-                    {{ Form::close() }}
+                    <p class="h5 mt-5">Tanks of this vehicle:</p>
+
+                    @foreach ($vehicle->tanks as $tank)
+
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                            <th scope="col">Attribute</th>
+                            <th scope="col">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">id</th>
+                                <td>{{ $tank->id }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">user</th>
+                                <td>{{ $tank->name }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">is_active</th>
+                                <td>{{ $tank->is_active }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">default</th>
+                                <td>{{ $tank->default }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">capacity</th>
+                                <td>{{ $tank->capacity }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">capacityUnit</th>
+                                <td>{{ $tank->capacityUnit->display_value }} <i>({{ $tank->capacityUnit->description }})</i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">fuelType</th>
+                                <td>{{ $tank->fuelType->display_value }} <i>({{ $tank->fuelType->description }})</i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">created_at</th>
+                                <td>{{ $tank->created_at }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">updated_at</th>
+                                <td>{{ $tank->updated_at }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="clearfix">                        
+                        <a href="{{ route('vehicles.tanks.edit', [$vehicle->id, $tank->id]) }}" class="btn btn-primary float-left" role="button">Edit tank {{ $tank->name }}</a>
+
+                        {{ Form::model($tank, ['route' => ['vehicles.tanks.destroy', $vehicle->id, $tank->id], 'method' => 'delete']) }}
+                            {{ Form::submit('Delete this tank', array('class' => 'btn btn-outline-danger float-right')) }}
+                        {{ Form::close() }}
+                    </div>
+                    
+                    @endforeach
+
                 </div>
             </div>
         </div>

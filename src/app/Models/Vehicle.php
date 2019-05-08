@@ -54,7 +54,7 @@ class Vehicle extends Model
     }
     
     /**
-     * Retrieve the fuel unit the vehicle belongs to
+     * Retrieve the capacity unit the vehicle belongs to
      * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

@@ -25,4 +25,24 @@ class Tank extends Model
     {
         return $this->hasOne(Vehicle::class);
     }
+    
+    /**
+     * Retrieve the capacity unit the tank belongs to
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function capacityUnit()
+    {
+        return $this->belongsTo(CapacityUnit::class);
+    }
+    
+    /**
+     * Retrieve the fuel unit the tank belongs to
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function fuelType()
+    {
+        return $this->belongsTo(FuelType::class);
+    }
 }

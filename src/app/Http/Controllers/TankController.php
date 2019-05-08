@@ -45,9 +45,8 @@ class TankController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($vehicleId)
+    public function create(Vehicle $vehicle)
     {
-        $vehicle       = Vehicle::find($vehicleId);
         $capacityUnits = CapacityUnit::all();
         $fuelTypes     = FuelType::all();
 
@@ -60,18 +59,18 @@ class TankController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $vehicleId)
+    public function store(Request $request, Vehicle $vehicle)
     {
         $validator = Validator::make($request->all(), $this->rules);
 
         // Validate
         if ($validator->fails()) {
-            return Redirect::route('vehicles.tanks.create', $vehicleId)
+            return Redirect::route('vehicles.tanks.create', $vehicle->id)
                 ->withErrors($validator)
                 ->withInput($request->all());
         } else {
             $tank = new Tank;
-            $tank->vehicle_id = $vehicleId;
+            $tank->vehicle_id = $vehicle->id;
             $tank->name = $request->get('name');
             $tank->is_active = $request->get('is_active', 1);
             $tank->default = $request->get('default', 1);
@@ -82,7 +81,7 @@ class TankController extends Controller
 
             // redirect
             Session::flash('message', 'Successfully created tank!');
-            return Redirect::route('vehicles.show', $vehicleId);
+            return Redirect::route('vehicles.show', $vehicle->id);
         }
     }
 
@@ -103,9 +102,9 @@ class TankController extends Controller
      * @param  \App\Tank  $tank
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tank $tank)
+    public function edit(Vehicle $vehicle, Tank $tank)
     {
-        //
+        
     }
 
     /**
