@@ -23,9 +23,9 @@ class FuelingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Vehicle $vehicle)
     {
-        //
+        return view('fuelings.create', compact('vehicle'));
     }
 
     /**
