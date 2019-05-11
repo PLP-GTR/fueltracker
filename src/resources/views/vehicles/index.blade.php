@@ -28,6 +28,12 @@
                                 {{ $vehicle->year }} {{ $vehicle->make }} <b>{{ $vehicle->model }}</b>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-8">
+                                <a href="{{ route('vehicles.fuelings.index', $vehicle->id) }}">Fuelings</a> (<a href="{{ route('vehicles.fuelings.create', $vehicle->id) }}">Add</a>)
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>

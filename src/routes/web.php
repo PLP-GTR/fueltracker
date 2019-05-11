@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('vehicles', 'VehicleController');
 Route::resource('vehicles.tanks', 'TankController');
+Route::resource('vehicles.fuelings', 'FuelingController');

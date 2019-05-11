@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Fueling;
 use Illuminate\Http\Request;
+use App\Vehicle;
 
 class FuelingController extends Controller
 {
@@ -12,9 +13,9 @@ class FuelingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Vehicle $vehicle)
     {
-        //
+        return view('fuelings.index', compact('vehicle'));
     }
 
     /**

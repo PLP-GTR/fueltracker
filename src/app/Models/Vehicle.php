@@ -42,6 +42,16 @@ class Vehicle extends Model
     {
         return $this->hasMany(Tank::class);
     }
+
+    /**
+     * Retrieve the fuelings which belong to the vehicle
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function fuelings()
+    {
+        return $this->hasMany(Fueling::class);
+    }
     
     /**
      * Retrieve the utilization unit the vehicle belongs to
