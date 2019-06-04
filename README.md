@@ -6,6 +6,7 @@ Gas/Fuel consumption tracker
 ## bugs
 
 - store currency code with fueling instead of foreign key? if currency should be deleted. but no, maybe flag currency as inactive? or just leave them as is and make sure that foreign keys prevent deletion
+- Transfer static data seeders to migration files, since reworks of seeders and later-on reworks of migrations are probably incompatible. Move the populating code to the migration file itself.
 
 ## features
 
