@@ -24,7 +24,7 @@ class PaymentTypesSeeder extends Seeder
         ]);
         PaymentType::create([
             'id' => Str::uuid(),
-            'display_value' => 'Credi tCard',
+            'display_value' => 'Credit Card',
             'description' => 'Credit Card'
         ]);
         PaymentType::create([
