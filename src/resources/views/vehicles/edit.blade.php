@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Vehicle: {{ $vehicle->name }}</div>
+                <div class="card-header">Update {{ $vehicle->name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,12 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <p><a href="{{ route('vehicles.index') }}">Back to your vehicles</a></p>
-
-                    <p><a href="{{ route('vehicles.show', $vehicle->id) }}">Cancel edit</a></p>
-
-                    <p>Update {{ $vehicle->name }}:</p>
 
                     {{ Form::model($vehicle, ['route' => ['vehicles.update', $vehicle->id], 'method' => 'put']) }}
 
@@ -70,9 +64,10 @@
                         <div class="col-sm-4">{{ Form::label('insurance', 'Insurance') }}</div>
                         <div class="col-sm-8">{{ Form::text('insurance') }}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-4">{{ Form::submit('Update vehicle') }}</div>
-                        <div class="col-sm-8"></div>
+
+                    <div class="row mt-5">
+                        <div class="col-sm-3">{{ Form::submit('Update vehicle', array('class' => 'btn btn-primary float-left')) }}</div>
+                        <div class="col-sm-9"><a class="btn btn-link text-secondary" href="{{ route('vehicles.show', $vehicle->id) }}">Cancel edit</a></div>
                     </div>
 
                     {{ Form::close() }}
