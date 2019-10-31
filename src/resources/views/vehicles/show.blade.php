@@ -98,13 +98,11 @@
                         <a href="{{ route('vehicles.edit', $vehicle->id) }}" class="btn btn-primary float-left" role="button">Edit vehicle {{ $vehicle->name }}</a>
 
                         {{ Form::model($vehicle, ['route' => ['vehicles.destroy', $vehicle->id], 'method' => 'delete']) }}
-                            {{ Form::submit('Delete this Vehicle', array('class' => 'btn btn-outline-danger float-right')) }}
+                            {{ Form::submit('Delete this vehicle', array('class' => 'btn btn-outline-danger float-right')) }}
                         {{ Form::close() }}
                     </div>
                     
                     <p class="h5 mt-5">Tanks of this vehicle:</p>
-                    
-                    <p><a href="{{ route('vehicles.tanks.create', $vehicle->id) }}">Add a tank to this vehicle</a></p>
 
                     @foreach ($vehicle->tanks as $tank)
 
@@ -164,6 +162,8 @@
                     </div>
                     
                     @endforeach
+                    
+                    <p><a href="{{ route('vehicles.tanks.create', $vehicle->id) }}">Add a tank to this vehicle</a></p>
 
                 </div>
             </div>

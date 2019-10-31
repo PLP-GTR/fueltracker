@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">New vehicle</div>
+                <div class="card-header">Add a new tank to {{ $vehicle->name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,12 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <p><a href="{{ route('vehicles.index') }}">Back to your vehicles</a></p>
-
-                    <p><a href="{{ route('vehicles.show', $vehicle->id) }}">Back to {{ $vehicle->name }}</a></p>
-
-                    <p>Add new tank to {{ $vehicle->make }} {{ $vehicle->model }}:</p>
 
                     {{ Form::open(['route' => ['vehicles.tanks.store', $vehicle->id]]) }}
 
@@ -46,13 +40,23 @@
                             <div class="col-sm-4">{{ Form::label('fuel_type_id', 'Fuel Type') }}</div>
                             <div class="col-sm-8">{{ Form::select('fuel_type_id', App\FuelType::all()->pluck('human_readable','id'), null, ['placeholder' => 'Choose...']) }}</div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-4">{{ Form::submit('Add tank') }}</div>
-                            <div class="col-sm-8"></div>
+
+                        <div class="row mt-5">
+                            <div class="col-sm-3">{{ Form::submit('Add tank', array('class' => 'btn btn-primary float-left')) }}</div>
+                            <div class="col-sm-9"><a class="btn btn-link text-secondary" href="{{ route('vehicles.show', $vehicle->id) }}">Cancel creation</a></div>
                         </div>
 
                     {{ Form::close() }}
 
+                    @if ($errors->any())
+                        <div class="row mt-3">
+                            <div class="col text-danger">Please check your input:</div>
+                        </div>
+                        @foreach ($errors->all() as $error)
+                            <div class="row"><div class="col">{{$error}}</div></div>
+                        @endforeach
+                    @endif
+                    
                 </div>
             </div>
         </div>
