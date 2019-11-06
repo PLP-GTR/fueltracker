@@ -9,12 +9,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^6.0",
-        "pragmarx/coollection": "^0.6.2",
-        "pragmarx/countries": "^0.5.9"
+        "pragmarx/coollection": "^0.7",
+        "pragmarx/countries": "^0.7"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
