@@ -4,11 +4,11 @@ namespace App;
 
 use App\ConsumptionUnit;
 use App\CapacityUnit;
+use App\Models\Concerns\HasUuid;
 use App\Tank;
 use App\User;
 use App\UtilizationUnit;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Concerns\HasUuid;
 
 class Vehicle extends Model
 {

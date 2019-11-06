@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 
 class FuelType extends Model
 {
+    use HasUuid;
+
     /**
      * Indicates if the IDs are auto-incrementing.
      *

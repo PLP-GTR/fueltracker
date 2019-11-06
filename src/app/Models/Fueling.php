@@ -2,10 +2,15 @@
 
 namespace App;
 
+use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 
 class Fueling extends Model
 {
+    use HasUuid;
+
+    protected $primaryKey = 'id';
+    
     /**
      * Indicates if the IDs are auto-incrementing.
      *

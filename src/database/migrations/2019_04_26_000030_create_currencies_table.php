@@ -15,7 +15,8 @@ class CreateCurrenciesTable extends Migration
     {
         Schema::create('currencies', function (Blueprint $table) {
             // Main information
-            $table->string('id')->primary()->comment('Primary key');
+            $table->uuid('id')->primary()->comment('Primary key');
+            $table->string('code')->unique()->comment('Primary key');
             $table->string('display_value')->unique()->comment('Useful to display');
             $table->string('description')->nullable()->comment('Helpful description to the user');
 

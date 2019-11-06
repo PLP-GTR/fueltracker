@@ -15,7 +15,7 @@ class CurrenciesSeeder extends Seeder
     {
         foreach((new Countries())->currencies() as $currency){
             Currency::create([
-                'id' => $currency->iso->code,
+                'code' => $currency->iso->code,
                 'display_value' => $currency->iso->code.' - '.$currency->name,
                 'description' => $currency->name
             ]);
