@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -21,6 +21,10 @@
 
                     <p>Add new fueling to {{ $vehicle->make }} {{ $vehicle->model }}:</p>
 
+                    @if ($errors->any())
+                        {{ implode('', $errors->all('<div>:message</div>')) }}
+                    @endif
+
                     {{ Form::open(['route' => ['vehicles.fuelings.store', $vehicle->id]]) }}
 
                         <div class="row">
@@ -33,15 +37,15 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-4">{{ Form::label('utilization_trip', 'Trip utilization (mileage / usage hours)') }}</div>
-                            <div class="col-sm-8">{{ Form::checkbox('utilization_trip', null, ['placeholder' => '124.5', 'step' => '0.1']) }}</div>
+                            <div class="col-sm-8">{{ Form::number('utilization_trip', null, ['placeholder' => '124.5', 'step' => '0.1']) }}</div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4">{{ Form::label('utilization_unit_id', 'Capacity') }}</div>
-                            <div class="col-sm-8">{{ Form::number('utilization_unit_id', null, ['placeholder' => '42', 'step' => '0.1']) }}</div>
+                            <div class="col-sm-4">{{ Form::label('utilization_unit_id', 'Utilization unit') }}</div>
+                            <div class="col-sm-8">{{ Form::select('utilization_unit_id', App\UtilizationUnit::all()->pluck('human_readable','id'), null, ['placeholder' => 'Choose...']) }}</div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4">{{ Form::label('currency_id', 'Fuel Type') }}</div>
-                            <div class="col-sm-8">{{ Form::select('currency_id', App\Currency::all()->pluck('human_readable','id'), null, ['placeholder' => 'Choose...']) }}</div>
+                            <div class="col-sm-4">{{ Form::label('currency_id', 'Currency') }}</div>
+                            <div class="col-sm-8">{{ Form::select('currency_id', App\Currency::all()->pluck('display_value','id'), null, ['placeholder' => 'Choose...']) }}</div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4">{{ Form::label('costs', 'Costs') }}</div>
@@ -57,7 +61,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-4">{{ Form::label('payment_type_id', 'Payment Type') }}</div>
-                            <div class="col-sm-8">{{ Form::select('payment_type_id', App\PaymentType::all()->pluck('human_readable','id'), null, ['placeholder' => 'Choose...']) }}</div>
+                            <div class="col-sm-8">{{ Form::select('payment_type_id', App\PaymentType::all()->pluck('display_value','id'), null, ['placeholder' => 'Choose...']) }}</div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4">{{ Form::label('capacity_unit_id', 'Capacity Unit') }}</div>
