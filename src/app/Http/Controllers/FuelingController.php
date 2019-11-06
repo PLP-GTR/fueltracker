@@ -88,7 +88,7 @@ class FuelingController extends Controller
 
             // redirect
             Session::flash('message', 'Successfully created fueling!');
-            return Redirect::route('vehicles.fuelings.show', $vehicle->id);
+            return Redirect::route('vehicles.show', $vehicle->id);
         }
     }
 
