@@ -99,7 +99,7 @@ class FuelingController extends Controller
      * @param  \App\Fueling  $fueling
      * @return \Illuminate\Http\Response
      */
-    public function show(Fueling $fueling)
+    public function show(Vehicle $vehicle, Fueling $fueling)
     {
         //
     }
@@ -110,9 +110,9 @@ class FuelingController extends Controller
      * @param  \App\Fueling  $fueling
      * @return \Illuminate\Http\Response
      */
-    public function edit(Fueling $fueling)
+    public function edit(Vehicle $vehicle, Fueling $fueling)
     {
-        //
+        return view('fuelings.edit', compact('vehicle', 'fueling'));
     }
 
     /**
@@ -122,9 +122,35 @@ class FuelingController extends Controller
      * @param  \App\Fueling  $fueling
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fueling $fueling)
+    public function update(Request $request, Vehicle $vehicle, Fueling $fueling)
     {
-        //
+        $validator = Validator::make($request->all(), $this->rules);
+
+        // Validate
+        if ($validator->fails()) {
+            return Redirect::route('vehicles.fuelings.edit', [$vehicle->id, $fueling->id])
+                ->withErrors($validator)
+                ->withInput($request->all());
+        } else {
+            $fueling->refueled_at         = $request->get('refueled_at');
+            $fueling->costs               = $request->get('costs');
+            $fueling->amount              = $request->get('amount');
+            $fueling->costs_per_capacity  = $request->get('costs_per_capacity');
+            $fueling->utilization_overall = $request->get('utilization_overall');
+            $fueling->utilization_trip    = $request->get('utilization_trip');
+            $fueling->utilization_unit_id = $request->get('utilization_unit_id');
+            $fueling->currency_id         = $request->get('currency_id');
+            $fueling->fuel_type_id        = $request->get('fuel_type_id');
+            $fueling->payment_type_id     = $request->get('payment_type_id');
+            $fueling->capacity_unit_id    = $request->get('capacity_unit_id');
+            $fueling->place_id            = $request->get('place_id');
+            $fueling->custom_fields       = $request->get('custom_fields');
+            $fueling->save();
+
+            // redirect
+            Session::flash('message', 'Successfully updated fueling!');
+            return Redirect::route('vehicles.fuelings.index', $vehicle->id);
+        }
     }
 
     /**

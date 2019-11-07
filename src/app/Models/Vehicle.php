@@ -50,7 +50,7 @@ class Vehicle extends Model
      */
     public function fuelings()
     {
-        return $this->hasMany(Fueling::class);
+        return $this->hasMany(Fueling::class)->orderBy('refueled_at', 'desc');
     }
     
     /**
