@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\UtilizationUnit;
 use App\CapacityUnit;
 use App\ConsumptionUnit;
+use App\Tank;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -93,6 +94,14 @@ class VehicleController extends Controller
             $vehicle->insurance = $request->get('insurance');
             $vehicle->save();
 
+            // Create default tank for vehicle to start with
+            $tank = new Tank();
+            $tank->vehicle_id = $vehicle->id;
+            $tank->name = 'Default'; // TODO: Generate human readable translated string
+            $tank->is_active = true;
+            $tank->default = true;
+            $tank->save();
+            
             // redirect
             Session::flash('message', 'Successfully created vehicle!');
             return Redirect::route('vehicles.index');
