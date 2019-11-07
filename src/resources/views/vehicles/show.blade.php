@@ -6,7 +6,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ $vehicle->name }}, <strong>{{ $vehicle->make }}</strong> {{ $vehicle->model }}</div>
+                <div class="card-header">
+                    <a href="{{ route('vehicles.index') }}">Vehicles</a> ⮞ 
+                    <a href="{{ route('vehicles.show', $vehicle->id) }}">{{ $vehicle->name }}</a>,
+                    <strong>{{ $vehicle->make }}</strong> {{ $vehicle->model }}
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -15,9 +19,7 @@
                         </div>
                     @endif
 
-                    <p><a href="{{ route('vehicles.index') }}">Back to your vehicles</a></p>
-
-                    <p class="h5">Your vehicle:</p>
+                    <p class="h5 mb-4">Your vehicle</p>
 
                     <table class="table table-sm">
                         <thead>
@@ -102,7 +104,7 @@
                         {{ Form::close() }}
                     </div>
                     
-                    <p class="h5 mt-5">Tanks of this vehicle:</p>
+                    <p class="h5 mt-5 mb-4">Tanks of this vehicle</p>
 
                     @foreach ($vehicle->tanks as $tank)
 

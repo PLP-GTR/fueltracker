@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">New vehicle</div>
+                <div class="card-header">
+                    <a href="{{ route('vehicles.index') }}">Vehicles</a> ⮞ 
+                    Add vehicle
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,9 +17,7 @@
                         </div>
                     @endif
 
-                    <p><a href="{{ route('vehicles.index') }}">Back to your vehicles</a></p>
-
-                    <p>Add new vehicle:</p>
+                    <p class="h5 mb-4">New vehicle</p>
 
                     <form method="POST" action="/vehicles">
                         {{ csrf_field() }}

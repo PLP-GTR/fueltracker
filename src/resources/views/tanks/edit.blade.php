@@ -5,7 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ $vehicle->name }}, update the tank: {{ $tank->name }}</div>
+                <div class="card-header">
+                    <a href="{{ route('vehicles.index') }}">Vehicles</a> ⮞ 
+                    <a href="{{ route('vehicles.show', $vehicle->id) }}">{{ $vehicle->name }}</a>,
+                    <strong>{{ $vehicle->make }}</strong> {{ $vehicle->model }} ⮞ 
+                    Tank: {{ $tank->name }} ⮞ Update
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))

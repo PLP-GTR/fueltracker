@@ -5,7 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">New fueling for {{ $vehicle->name }}</div>
+                <div class="card-header">
+                    <a href="{{ route('vehicles.index') }}">Vehicles</a> ⮞ 
+                    <a href="{{ route('vehicles.show', $vehicle->id) }}">{{ $vehicle->name }}</a>,
+                    <strong>{{ $vehicle->make }}</strong> {{ $vehicle->model }} ⮞ 
+                    Add fueling
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,13 +19,8 @@
                         </div>
                     @endif
 
-                    <p>
-                        <a href="{{ route('vehicles.show', $vehicle->id) }}">Back to {{ $vehicle->name }}</a> | 
-                        <a href="{{ route('vehicles.index') }}">Back to your vehicles</a>
-                    </p>
-
-                    <p>Add new fueling to {{ $vehicle->make }} {{ $vehicle->model }}:</p>
-
+                    <p class="h5 mb-4">New fueling</p>
+                    
                     @if ($errors->any())
                         {{ implode('', $errors->all('<div>:message</div>')) }}
                     @endif

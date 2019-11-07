@@ -5,7 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ $vehicle->name }}, update the fueling of {{ $fueling->refueled_at }}</div>
+                <div class="card-header">
+                    <a href="{{ route('vehicles.index') }}">Vehicles</a> ⮞ 
+                    <a href="{{ route('vehicles.show', $vehicle->id) }}">{{ $vehicle->name }}</a>,
+                    <strong>{{ $vehicle->make }}</strong> {{ $vehicle->model }} ⮞ 
+                    Fueling: {{ $fueling->refueled_at }} ⮞ Update
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -33,15 +38,15 @@
                             <div class="col-sm-8">{{ Form::number('amount', null, ['placeholder' => '55.67', 'step' => '0.01', 'class' => 'form-control']) }}</div>
                         </div>
                         <div class="row align-items-center mt-2">
-                            <div class="col-sm-4">{{ Form::label('costs_per_capacity', 'Costs per capacity') }}<br/><i>i.e. USD per gallon, euro per liter</i></div>
+                            <div class="col-sm-4"><p>{{ Form::label('costs_per_capacity', 'Costs per capacity') }}<br/><i>i.e. USD per gallon, euro per liter</i></p></div>
                             <div class="col-sm-8">{{ Form::number('costs_per_capacity', null, ['placeholder' => '4.599', 'step' => '0.001', 'class' => 'form-control']) }}</div>
                         </div>
                         <div class="row align-items-center mt-2">
-                            <div class="col-sm-4">{{ Form::label('utilization_overall', 'Car utilization overall') }}<br/><i>Milage or usage hours</i></div>
+                            <div class="col-sm-4"><p>{{ Form::label('utilization_overall', 'Car utilization overall') }}<br/><i>Milage or usage hours</i></p></div>
                             <div class="col-sm-8">{{ Form::number('utilization_overall', null, ['placeholder' => '2258', 'class' => 'form-control']) }}</div>
                         </div>
                         <div class="row align-items-center mt-2">
-                            <div class="col-sm-4">{{ Form::label('utilization_trip', 'Trip utilization') }}<br/><i>Milage or usage hours</i></div>
+                            <div class="col-sm-4"><p>{{ Form::label('utilization_trip', 'Trip utilization') }}<br/><i>Milage or usage hours</i></p></div>
                             <div class="col-sm-8">{{ Form::number('utilization_trip', null, ['placeholder' => '124.5', 'step' => '0.1', 'class' => 'form-control']) }}</div>
                         </div>
                         <div class="row align-items-center mt-2">
