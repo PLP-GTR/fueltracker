@@ -1,24 +1,18 @@
-# fuelti.me
+# Unnamed fuel tracker
 Gas/Fuel consumption tracker
 
 # todo's, notes and ideas
 
 ## bugs
 
-- store currency code with fueling instead of foreign key? if currency should be deleted. but no, maybe flag currency as inactive? or just leave them as is and make sure that foreign keys prevent deletion
-- Transfer static data seeders to migration files, since reworks of seeders and later-on reworks of migrations are probably incompatible. Move the populating code to the migration file itself.
+- lots of, don't report
+- tank missing at fueling
 
-## features
+## planned
 
-- Read
-- Store
-- Routing
-- Views
-- Seeders
 - api
 - add user base currency
 - store exchange rate to user's base currency at time of fueling to fueling
-- Support not only distances but usage hours (renaming distance to utilization)
 - Support types of cars to switch themes and display other, more important information i.e. "Daily Driver" (blueish design; km driven, consumption, costs/km & overall), "Commute only" (economy design, costs/month), "Racecar" (red/black design; costs)
 - Add picture uploads for receipes and vehicles (stations?)
 - Add categories or tags, so fuel logs can be differentiated between private/work/travel/commute (user defined)
@@ -29,6 +23,8 @@ Gas/Fuel consumption tracker
 
 # done's
 
+- Support not only distances but usage hours (renaming distance to utilization)
+- table for fuelings
 - table for vehicles
 - table for utilization_units (km, mi, nm (nautic miles), h (hours))
 - table for capacity_units (liter, gallons etc)
@@ -37,6 +33,5 @@ Gas/Fuel consumption tracker
 - table for currencies (EUR, USD etc)
 - table for fuel_types (petrol, diesel, electric etc)
 - table for tanks (id, fuel_type_uuid, capacity, capacity_unit_uuid, flag if standard)
-- table for fuel_subtypes (super / super plus / ethanol etc)
+- table for fuel_subtypes (super / super plus / ethanol etc) // CANCELED
 - table for places (i.e. gas stations, at home like farmes refuel etc)
-
