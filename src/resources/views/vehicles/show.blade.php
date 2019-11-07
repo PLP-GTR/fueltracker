@@ -136,11 +136,11 @@
                             </tr>
                             <tr>
                                 <th scope="row">capacityUnit</th>
-                                <td>{{ $tank->capacityUnit->display_value }} <i>({{ $tank->capacityUnit->description }})</i></td>
+                                <td>{{ $tank->capacityUnit->display_value ?? 'Not set' }} <i>({{ $tank->capacityUnit->description ?? '' }})</i></td>
                             </tr>
                             <tr>
                                 <th scope="row">fuelType</th>
-                                <td>{{ $tank->fuelType->display_value }} <i>({{ $tank->fuelType->description }})</i></td>
+                                <td>{{ $tank->fuelType->display_value ?? 'Not set' }} <i>({{ $tank->fuelType->description ?? '' }})</i></td>
                             </tr>
                             <tr>
                                 <th scope="row">created_at</th>

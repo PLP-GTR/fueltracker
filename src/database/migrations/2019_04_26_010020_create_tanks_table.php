@@ -22,11 +22,11 @@ class CreateTanksTable extends Migration
             $table->boolean('default')->nullable()->comment('Indicates if this is the default tank to use');
 
             // Tank capacity
-            $table->float('capacity')->comment('The actual capacity of the tank in chosen capacity unit');
-            $table->uuid('capacity_unit_id')->comment('Foreign key to capacity types table; Examples are liter, gallons etc');
+            $table->float('capacity')->nullable()->comment('The actual capacity of the tank in chosen capacity unit');
+            $table->uuid('capacity_unit_id')->nullable()->comment('Foreign key to capacity types table; Examples are liter, gallons etc');
 
             // Other
-            $table->uuid('fuel_type_id')->comment('Foreign key to fuel types table; Fuel types are Petrol/Diesel/Electric etc');
+            $table->uuid('fuel_type_id')->nullable()->comment('Foreign key to fuel types table; Fuel types are Petrol/Diesel/Electric etc');
 
             // Default
             $table->timestamps();
