@@ -73,11 +73,12 @@ class FuelingController extends Controller
             $fueling = new Fueling;
             $fueling->vehicle_id          = $vehicle->id;
             $fueling->refueled_at         = $request->get('refueled_at');
+            $fueling->costs               = $request->get('costs');
+            $fueling->amount              = $request->get('amount');
+            $fueling->costs_per_capacity  = $request->get('costs_per_capacity');
             $fueling->utilization_overall = $request->get('utilization_overall');
             $fueling->utilization_trip    = $request->get('utilization_trip');
             $fueling->utilization_unit_id = $request->get('utilization_unit_id');
-            $fueling->costs               = $request->get('costs');
-            $fueling->costs_per_capacity  = $request->get('costs_per_capacity');
             $fueling->currency_id         = $request->get('currency_id');
             $fueling->fuel_type_id        = $request->get('fuel_type_id');
             $fueling->payment_type_id     = $request->get('payment_type_id');

@@ -18,15 +18,16 @@ class CreateFuelingsTable extends Migration
             $table->uuid('vehicle_id')->nullable()->comment('Foreign key to vehicles table');
             $table->dateTimeTz('refueled_at')->nullable()->comment('When the vehicle was refueled, receipt date');
 
-            // Uitilization / Milage
+            // Costs
+            $table->float('costs')->nullable()->comment('Costs of the fueling');
+            $table->float('amount')->nullable()->comment('Amount of fuel');
+            $table->float('costs_per_capacity')->nullable()->comment('If known, costs per 1 capacity can be used to calculate the costs (i.e. if several items are on the receipt)');
+            $table->uuid('currency_id')->nullable()->comment('Foreign key to currencies table; Currency of the fueling costs, i.e. EUR/USD etc');
+
+            // Vehicle uitilization / Milage
             $table->float('utilization_overall', 7, 2)->nullable()->nullable()->comment('Overall utilization of the vehicle at fueling');
             $table->float('utilization_trip', 7, 2)->nullable()->nullable()->comment('Trip/partial utilization since last fueling');
             $table->uuid('utilization_unit_id')->nullable()->comment('Foreign key to distance units talbe; Common ones are km/mi/nm/h');
-
-            // Costs
-            $table->float('costs')->nullable()->comment('Costs of the fueling');
-            $table->float('costs_per_capacity')->nullable()->comment('If known, costs per 1 capacity can be used to calculate the costs (i.e. if several items are on the receipt)');
-            $table->uuid('currency_id')->nullable()->comment('Foreign key to currencies table; Currency of the fueling costs, i.e. EUR/USD etc');
 
             // Types and other things
             $table->uuid('fuel_type_id')->nullable()->comment('Foreign key to fuel subtypes table; Fuel subtypes are Super (95), Super Plus (98) etc');
