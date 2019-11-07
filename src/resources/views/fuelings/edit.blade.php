@@ -27,7 +27,7 @@
                         </div>
                         <div class="row align-items-center mt-2">
                             <div class="col-sm-4">{{ Form::label('amount', 'Amount') }}</div>
-                            <div class="col-sm-8">{{ Form::number('amount', null, ['placeholder' => '55.67', 'step' => '0.01', 'class' => 'form-control']) }}</div>
+                            <div class="col-sm-8">{{ Form::number('amount', null, ['placeholder' => '00.00', 'step' => '0.01', 'class' => 'form-control']) }}</div>
                         </div>
                         <div class="row align-items-center mt-2">
                             <div class="col-sm-4">{{ Form::label('capacity_unit_id', 'Capacity Unit') }}</div>
@@ -37,17 +37,21 @@
                             <div class="col-sm-4">{{ Form::label('fuel_type_id', 'Fuel Type') }}</div>
                             <div class="col-sm-8">{{ Form::select('fuel_type_id', App\FuelType::all()->pluck('human_readable','id'), null, ['placeholder' => 'Choose...', 'class' => 'form-control']) }}</div>
                         </div>
+                        <div class="row align-items-center mt-2">
+                            <div class="col-sm-4">{{ Form::label('tank_id', 'Tank') }}</div>
+                            <div class="col-sm-8">{{ Form::select('tank_id', $vehicle->tanks->pluck('name','id'), null, ['placeholder' => 'Choose...', 'class' => 'form-control']) }}</div>
+                        </div>
                         <div class="row align-items-center mt-5">
                             <div class="col-sm-4">{{ Form::label('currency_id', 'Currency') }}</div>
                             <div class="col-sm-8">{{ Form::select('currency_id', App\Currency::all()->pluck('display_value','id'), null, ['placeholder' => 'Choose...', 'class' => 'form-control']) }}</div>
                         </div>
                         <div class="row align-items-center mt-2">
                             <div class="col-sm-4">{{ Form::label('costs', 'Costs') }}</div>
-                            <div class="col-sm-8">{{ Form::number('costs', null, ['placeholder' => '68.89', 'step' => '0.01', 'class' => 'form-control']) }}</div>
+                            <div class="col-sm-8">{{ Form::number('costs', null, ['placeholder' => '00.00', 'step' => '0.01', 'class' => 'form-control']) }}</div>
                         </div>
                         <div class="row align-items-center mt-2">
                             <div class="col-sm-4"><p>{{ Form::label('costs_per_capacity', 'Costs per capacity') }}<br/><i>i.e. USD per gallon, euro per liter</i></p></div>
-                            <div class="col-sm-8">{{ Form::number('costs_per_capacity', null, ['placeholder' => '4.599', 'step' => '0.001', 'class' => 'form-control']) }}</div>
+                            <div class="col-sm-8">{{ Form::number('costs_per_capacity', null, ['placeholder' => '0.000', 'step' => '0.001', 'class' => 'form-control']) }}</div>
                         </div>
                         <div class="row align-items-center mt-2">
                             <div class="col-sm-4">{{ Form::label('payment_type_id', 'Payment Type') }}</div>
@@ -55,11 +59,11 @@
                         </div>
                         <div class="row align-items-center mt-5">
                             <div class="col-sm-4"><p>{{ Form::label('utilization_overall', 'Car utilization overall') }}<br/><i>Milage or usage hours</i></p></div>
-                            <div class="col-sm-8">{{ Form::number('utilization_overall', null, ['placeholder' => '2258', 'class' => 'form-control']) }}</div>
+                            <div class="col-sm-8">{{ Form::number('utilization_overall', null, ['placeholder' => '123456', 'class' => 'form-control']) }}</div>
                         </div>
                         <div class="row align-items-center mt-2">
                             <div class="col-sm-4"><p>{{ Form::label('utilization_trip', 'Trip utilization') }}<br/><i>Milage or usage hours</i></p></div>
-                            <div class="col-sm-8">{{ Form::number('utilization_trip', null, ['placeholder' => '124.5', 'step' => '0.1', 'class' => 'form-control']) }}</div>
+                            <div class="col-sm-8">{{ Form::number('utilization_trip', null, ['placeholder' => '000.0', 'step' => '0.1', 'class' => 'form-control']) }}</div>
                         </div>
                         <div class="row align-items-center mt-2">
                             <div class="col-sm-4">{{ Form::label('utilization_unit_id', 'Utilization unit') }}</div>
