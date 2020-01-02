@@ -13,6 +13,7 @@ Gas/Fuel consumption tracker
 - api
 - add user base currency
 - store exchange rate to user's base currency at time of fueling to fueling
+- use current and historical exchange rates, using https://laravel-news.com/laravel-exchange-rates-api-package
 - Support types of cars to switch themes and display other, more important information i.e. "Daily Driver" (blueish design; km driven, consumption, costs/km & overall), "Commute only" (economy design, costs/month), "Racecar" (red/black design; costs)
 - Add picture uploads for receipes and vehicles (stations?)
 - Add categories or tags, so fuel logs can be differentiated between private/work/travel/commute (user defined)
