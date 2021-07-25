@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use PragmaRX\Countries\Package\Countries;
 use App\Models\Currency;
