@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\ConsumptionUnit;
+use App\Models\ConsumptionUnit;
 
 class ConsumptionUnitsSeeder extends Seeder
 {

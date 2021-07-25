@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use App\Models\FuelType;
-use App\Models\Concerns\HasUuid;
+use App\Models\Concerns\UsesUuidTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class FuelCategory extends Model
 {
-    use HasUuid;
+    use UsesUuidTrait;
 
     /**
      * Indicates if the IDs are auto-incrementing.

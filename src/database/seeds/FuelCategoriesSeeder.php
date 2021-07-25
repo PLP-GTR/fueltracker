@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\FuelCategory;
+use App\Models\FuelCategory;
 
 class FuelCategoriesSeeder extends Seeder
 {

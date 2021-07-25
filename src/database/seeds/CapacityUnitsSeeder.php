@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Provider\Uuid;
-use App\CapacityUnit;
+use App\Models\CapacityUnit;
 
 class CapacityUnitsSeeder extends Seeder
 {

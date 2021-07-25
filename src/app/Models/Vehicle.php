@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\ConsumptionUnit;
 use App\Models\CapacityUnit;
-use App\Models\Concerns\HasUuid;
+use App\Models\Concerns\UsesUuidTrait;
 use App\Models\Fueling;
 use App\Models\Tank;
 use App\Models\User;
@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehicle extends Model
 {
-    use HasUuid;
+    use UsesUuidTrait;
 
     protected $primaryKey = 'id';
 

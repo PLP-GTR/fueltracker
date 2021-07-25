@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use App\Models\CapacityUnit;
-use App\Models\Concerns\HasUuid;
+use App\Models\Concerns\UsesUuidTrait;
 use App\Models\FuelType;
 use App\Models\Vehicle;
 use Illuminate\Database\Eloquent\Model;
 
 class Tank extends Model
 {
-    use HasUuid;
+    use UsesUuidTrait;
 
     /**
      * Indicates if the IDs are auto-incrementing.

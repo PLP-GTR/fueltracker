@@ -2,12 +2,12 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Vehicle;
+use App\Models\Vehicle;
 use Faker\Generator as Faker;
-use App\UtilizationUnit;
-use App\CapacityUnit;
-use App\ConsumptionUnit;
-use App\User;
+use App\Models\UtilizationUnit;
+use App\Models\CapacityUnit;
+use App\Models\ConsumptionUnit;
+use App\Models\User;
 
 $factory->define(Vehicle::class, function (Faker $faker) {
 

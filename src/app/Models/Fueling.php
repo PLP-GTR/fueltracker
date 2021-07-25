@@ -6,14 +6,14 @@ use App\Models\Currency;
 use App\Models\CapacityUnit;
 use App\Models\FuelCategory;
 use App\Models\FuelType;
-use App\Models\Concerns\HasUuid;
+use App\Models\Concerns\UsesUuidTrait;
 use App\Models\PaymentType;
 use App\Models\Vehicle;
 use Illuminate\Database\Eloquent\Model;
 
 class Fueling extends Model
 {
-    use HasUuid;
+    use UsesUuidTrait;
 
     protected $primaryKey = 'id';
     

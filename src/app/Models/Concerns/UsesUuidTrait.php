@@ -4,7 +4,7 @@ namespace App\Models\Concerns;
 
 use Illuminate\Support\Str;
 
-trait HasUuid
+trait UsesUuidTrait
 {
     protected static function boot()
     {

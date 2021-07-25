@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use PragmaRX\Countries\Package\Countries;
-use App\Currency;
+use App\Models\Currency;
 
 class CurrenciesSeeder extends Seeder
 {

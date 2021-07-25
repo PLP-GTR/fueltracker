@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\UtilizationUnit;
+use App\Models\UtilizationUnit;
 
 class UtilizationUnitsSeeder extends Seeder
 {

@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\FuelCategory;
-use App\FuelCategoryFuelType;
-use App\FuelType;
+use App\Models\FuelCategory;
+use App\Models\FuelCategoryFuelType;
+use App\Models\FuelType;
 use Illuminate\Support\Arr;
 
 class FuelCategoryFuelTypeSeeder extends Seeder
