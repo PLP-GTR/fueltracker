@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\CapacityUnit;
 use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 
