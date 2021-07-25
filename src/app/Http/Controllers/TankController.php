@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Tank;
+use App\Models\Tank;
 use Illuminate\Http\Request;
-use App\FuelType;
-use App\CapacityUnit;
-use App\Vehicle;
+use App\Models\FuelType;
+use App\Models\CapacityUnit;
+use App\Models\Vehicle;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;

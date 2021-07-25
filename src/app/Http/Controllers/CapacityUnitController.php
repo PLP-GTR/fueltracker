@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\CapacityUnit;
+use App\Models\CapacityUnit;
 use Illuminate\Http\Request;
 
 class CapacityUnitController extends Controller
