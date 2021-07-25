@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\FuelCategory;
+use App\Models\FuelType;
 use Illuminate\Database\Eloquent\Model;
 
 class FuelCategoryFuelType extends Model

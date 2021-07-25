@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\UtilizationUnit;
+use App\Models\UtilizationUnit;
 use Illuminate\Http\Request;
 
 class UtilizationUnitController extends Controller

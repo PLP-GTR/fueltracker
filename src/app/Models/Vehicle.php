@@ -1,10 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Models\ConsumptionUnit;
 use App\Models\CapacityUnit;
 use App\Models\Concerns\HasUuid;
+use App\Models\Fueling;
 use App\Models\Tank;
 use App\Models\User;
 use App\Models\UtilizationUnit;

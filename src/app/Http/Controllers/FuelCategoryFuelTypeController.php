@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\FuelCategoryFuelType;
+use App\Models\FuelCategoryFuelType;
 use Illuminate\Http\Request;
 
 class FuelCategoryFuelTypeController extends Controller

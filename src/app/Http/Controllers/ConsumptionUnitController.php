@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ConsumptionUnit;
+use App\Models\ConsumptionUnit;
 use Illuminate\Http\Request;
 
 class ConsumptionUnitController extends Controller

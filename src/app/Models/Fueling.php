@@ -1,9 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Models\Currency;
 use App\Models\CapacityUnit;
+use App\Models\FuelCategory;
+use App\Models\FuelType;
 use App\Models\Concerns\HasUuid;
+use App\Models\PaymentType;
+use App\Models\Vehicle;
 use Illuminate\Database\Eloquent\Model;
 
 class Fueling extends Model

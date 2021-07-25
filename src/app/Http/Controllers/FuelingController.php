@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Fueling;
+use App\Models\Fueling;
 use Illuminate\Http\Request;
-use App\Vehicle;
+use App\Models\Vehicle;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;

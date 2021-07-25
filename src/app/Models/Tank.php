@@ -1,9 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Models\CapacityUnit;
 use App\Models\Concerns\HasUuid;
+use App\Models\FuelType;
+use App\Models\Vehicle;
 use Illuminate\Database\Eloquent\Model;
 
 class Tank extends Model

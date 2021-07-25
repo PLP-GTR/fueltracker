@@ -1,7 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Models\FuelType;
 use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 
